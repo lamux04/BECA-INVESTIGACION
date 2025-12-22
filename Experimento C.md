@@ -1,0 +1,1 @@
+Lo mismo que el B pero sin el undersampling inicial.
