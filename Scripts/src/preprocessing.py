@@ -260,3 +260,10 @@ def stratified_kfold_cross_validation_bm_not_a_class(df, k, test_label, labels, 
 
     output_files.append(test_file)
     return output_files
+
+def build_prompt_df(df):
+    df["text"] = (
+        "### Instrucción:\n" + df["source_text"].astype(str) +
+        "\n\n### Respuesta:\n" + df["target_text"].astype(str)
+    )
+    return df

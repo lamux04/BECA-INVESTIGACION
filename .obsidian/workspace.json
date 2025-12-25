@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Experimentos.md",
+                "file": "Experimento B2.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Experimentos"
+              "title": "Experimento B2"
             }
           }
         ]
@@ -206,20 +206,21 @@
   },
   "active": "485de02ff9bf8090",
   "lastOpenFiles": [
-    "Scripts/Experimento-B/03-preparing-dataset.nbconvert.ipynb",
-    "Experimento A.md",
     "Experimento B.md",
-    "Scripts/Experimento-B/04-training-5_5.sh",
-    "Scripts/Experimento-B/04-training-5_5.ipynb",
-    "Scripts/Experimento-B/04-training-4_5.sh",
-    "Scripts/Experimento-B/04-training-4_5.ipynb",
-    "Scripts/Experimento-B/04-training-3_5.sh",
-    "Scripts/Experimento-B/04-training-3_5.ipynb",
-    "Scripts/Experimento-B/04-training-2_5.sh",
-    "Scripts/Experimento-B/04-training-2_5.ipynb",
-    "Scripts/Experimento-B/04-training-1_5.sh",
-    "Scripts/Experimento-B/04-training-1_5.ipynb",
+    "Experimento B2.md",
+    "Scripts/Experimento-B2/04-training-5_5.sh",
+    "Scripts/Experimento-B2/04-training-5_5.ipynb",
+    "Scripts/Experimento-B2/04-training-4_5 copy.ipynb",
+    "Scripts/Experimento-B2/04-training-4_5 copy.sh",
+    "Scripts/Experimento-B2/04-training-4_5.sh",
+    "Scripts/Experimento-B2/04-training-4_5.ipynb",
+    "Scripts/Experimento-B2/04-training-3_5 copy.sh",
+    "Scripts/Experimento-B2/04-training-3_5 copy.ipynb",
+    "Scripts/Experimento-B2/04-training-3_5.sh",
+    "Scripts/Experimento-B2/04-training-3_5.ipynb",
+    "Scripts/models/llama3.1-8b/README.md",
     "Experimento C.md",
+    "Experimento A.md",
     "Experimentos.md",
     "Welcome.md",
     "Scripts/models/t5-small/README.md"
