@@ -2,6 +2,7 @@
 | --- | ------- | ------------- | ------------ | ----------- | ----------- | ------ | ------- | ----- | ------------------------------------ |
 | A   | 40M     | Random        | SMOTE igual  | 6.66        | 93.33       | t5     |         | —     | Demasiado costoso computacionalmente |
 | B   | 5M      | Random        | SMOTE 50/50  | 50          | 50          | t5     |         | —     | —                                    |
+| B2  | 5M      | Random        | SMOTE 50/50  | 50          | 50          | LLama  |         | -     | -                                    |
 
 # EXPERIMENTO A (40M)
 1. Preparación (eliminar filas y columnas).

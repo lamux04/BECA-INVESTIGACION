@@ -168,12 +168,22 @@
             "state": {
               "type": "calendar",
               "state": {},
-              "icon": "calendar-with-checkmark",
-              "title": "Calendar"
+              "icon": "lucide-ghost",
+              "title": "calendar"
             }
           },
           {
             "id": "2dd4519fd3c89947",
+            "type": "leaf",
+            "state": {
+              "type": "todo",
+              "state": {},
+              "icon": "lucide-ghost",
+              "title": "todo"
+            }
+          },
+          {
+            "id": "05028a267f8a55b8",
             "type": "leaf",
             "state": {
               "type": "todo",
@@ -183,7 +193,7 @@
             }
           }
         ],
-        "currentTab": 6
+        "currentTab": 7
       }
     ],
     "direction": "horizontal",
@@ -206,8 +216,10 @@
   },
   "active": "485de02ff9bf8090",
   "lastOpenFiles": [
-    "Experimento B.md",
+    "Experimentos.md",
+    "Experimento C.md",
     "Experimento B2.md",
+    "Experimento B.md",
     "Scripts/Experimento-B2/04-training-5_5.sh",
     "Scripts/Experimento-B2/04-training-5_5.ipynb",
     "Scripts/Experimento-B2/04-training-4_5 copy.ipynb",
@@ -219,9 +231,7 @@
     "Scripts/Experimento-B2/04-training-3_5.sh",
     "Scripts/Experimento-B2/04-training-3_5.ipynb",
     "Scripts/models/llama3.1-8b/README.md",
-    "Experimento C.md",
     "Experimento A.md",
-    "Experimentos.md",
     "Welcome.md",
     "Scripts/models/t5-small/README.md"
   ]
