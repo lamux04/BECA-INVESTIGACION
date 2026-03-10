@@ -1,0 +1,14 @@
+03-03-2026
+- Organización de carpetas del proyecto.
+
+04-03-2026
+- Crear entorno y documentar cómo recrearlo.
+
+09-03-2026
+- Creación excel metadatos de CIC17
+- Identificación de datasets CIC17
+- Descarga de CIC18
+- Descarga de BCCC17
+- Tecnicas de undersampling
+- Preparar plantillas supercomputador
+- Preparar experimento eda_v2.ipynb
