@@ -1,14 +1,14 @@
 #!/bin/bash
-#SBATCH --job-name=eda_v2
+#SBATCH --job-name=eda_v3
 #SBATCH --cpus-per-task=64
 #SBATCH --partition=normal
 #SBATCH --time=1-00:00:00
 #SBATCH --mem=200GB
-#SBATCH --output=/home/inginf/u32902122/TFG/04_experimentos/logs/out/output_eda_v2.log
+#SBATCH --output=/home/inginf/u32902122/TFG/04_experimentos/logs/out/output_eda_v3.log
 #SBATCH --mail-user=javier.labradormunoz@alum.uca.es
 #SBATCH --mail-type=BEGIN,END,FAIL,TIME_LIMIT_80
 
-NOMBRE_SCRIPT="eda_v2"
+NOMBRE_SCRIPT="eda_v3"
 PATH_SCRIPT=03_codigo/preprocessing/$NOMBRE_SCRIPT
 
 BASE=/home/inginf/u32902122/TFG/$PATH_SCRIPT
