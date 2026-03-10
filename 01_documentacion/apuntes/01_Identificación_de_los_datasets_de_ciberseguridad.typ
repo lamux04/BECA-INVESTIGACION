@@ -183,11 +183,37 @@
 
 == Dataset CIC-IDS-2018 (eda_v2.ipynb)
 
+=== Información general
+
+#image("/assets/image-2.png")
+
+=== Distribución de las clases
+
+#image("/assets/image-3.png")
+
 === Problemas típicos
 
 - Hay algunos elementos que son etiqueta Label.
 - Hay algunos elementos de tipo string.
 - Hay filas con solo 3 valores posibles.
-- No hay columnas con alta correlación.
+- Hay columnas con alta correlación.
+- Hay filas con valores nulos.
+- Hay filas completas que son NaN. 
+
+== Dataset BCCC-CIC-IDS-2017 (eda_v3.ipynb)
+
+=== Información general
+
+#image("/assets/image-5.png")
+
+=== Distribución de las clases
+
+#image("/assets/image-4.png")
+
+=== Problemas típicos
+
+- Hay algunos elementos de tipo string.
+- Hay filas con solo 1, 2 o 3 valores posibles.
+- Hay columnas con alta correlación.
 - Hay filas con valores nulos.
 - Hay filas completas que son NaN. 
