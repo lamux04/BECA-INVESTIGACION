@@ -1,0 +1,117 @@
+/var/spool/slurmd/job95921/slurm_script: línea 25: nvidia-smi: no se encontró la orden
+/var/spool/slurmd/job95921/slurm_script: línea 28: nvidia-smi: no se encontró la orden
+[NbConvertApp] Converting notebook /home/inginf/u32902122/TFG/03_codigo/preprocessing/eda_v3.ipynb to notebook
+Traceback (most recent call last):
+  File "/apps/software/Anaconda3/2024.02-1/bin/jupyter-nbconvert", line 11, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/apps/software/Anaconda3/2024.02-1/lib/python3.11/site-packages/jupyter_core/application.py", line 280, in launch_instance
+    super().launch_instance(argv=argv, **kwargs)
+  File "/apps/software/Anaconda3/2024.02-1/lib/python3.11/site-packages/traitlets/config/application.py", line 992, in launch_instance
+    app.start()
+  File "/apps/software/Anaconda3/2024.02-1/lib/python3.11/site-packages/nbconvert/nbconvertapp.py", line 412, in start
+    self.convert_notebooks()
+  File "/apps/software/Anaconda3/2024.02-1/lib/python3.11/site-packages/nbconvert/nbconvertapp.py", line 590, in convert_notebooks
+    self.convert_single_notebook(notebook_filename)
+  File "/apps/software/Anaconda3/2024.02-1/lib/python3.11/site-packages/nbconvert/nbconvertapp.py", line 556, in convert_single_notebook
+    output, resources = self.export_single_notebook(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/apps/software/Anaconda3/2024.02-1/lib/python3.11/site-packages/nbconvert/nbconvertapp.py", line 479, in export_single_notebook
+    output, resources = self.exporter.from_filename(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/apps/software/Anaconda3/2024.02-1/lib/python3.11/site-packages/nbconvert/exporters/exporter.py", line 203, in from_filename
+    return self.from_file(f, resources=resources, **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/apps/software/Anaconda3/2024.02-1/lib/python3.11/site-packages/nbconvert/exporters/exporter.py", line 222, in from_file
+    return self.from_notebook_node(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/apps/software/Anaconda3/2024.02-1/lib/python3.11/site-packages/nbconvert/exporters/notebook.py", line 36, in from_notebook_node
+    nb_copy, resources = super().from_notebook_node(nb, resources, **kw)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/apps/software/Anaconda3/2024.02-1/lib/python3.11/site-packages/nbconvert/exporters/exporter.py", line 156, in from_notebook_node
+    nb_copy, resources = self._preprocess(nb_copy, resources)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/apps/software/Anaconda3/2024.02-1/lib/python3.11/site-packages/nbconvert/exporters/exporter.py", line 354, in _preprocess
+    nbc, resc = preprocessor(nbc, resc)  # type:ignore[operator]
+                ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/apps/software/Anaconda3/2024.02-1/lib/python3.11/site-packages/nbconvert/preprocessors/base.py", line 48, in __call__
+    return self.preprocess(nb, resources)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/apps/software/Anaconda3/2024.02-1/lib/python3.11/site-packages/nbconvert/preprocessors/execute.py", line 102, in preprocess
+    self.preprocess_cell(cell, resources, index)
+  File "/apps/software/Anaconda3/2024.02-1/lib/python3.11/site-packages/nbconvert/preprocessors/execute.py", line 123, in preprocess_cell
+    cell = self.execute_cell(cell, index, store_history=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/apps/software/Anaconda3/2024.02-1/lib/python3.11/site-packages/jupyter_core/utils/__init__.py", line 173, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/apps/software/Anaconda3/2024.02-1/lib/python3.11/asyncio/base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/apps/software/Anaconda3/2024.02-1/lib/python3.11/site-packages/nbclient/client.py", line 1058, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/apps/software/Anaconda3/2024.02-1/lib/python3.11/site-packages/nbclient/client.py", line 914, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+################## COLUMNAS CON ALTA CORRELACIÓN #####################
+import numpy as np
+
+df_datos = df.drop(columns = "label")
+
+corr_matrix = df_datos.corr().abs()
+------------------
+
+
+[31m---------------------------------------------------------------------------[39m
+[31mValueError[39m                                Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[9][39m[32m, line 6[39m
+[32m      2[39m [38;5;28;01mimport[39;00m[38;5;250m [39m[34;01mnumpy[39;00m[38;5;250m [39m[38;5;28;01mas[39;00m[38;5;250m [39m[34;01mnp[39;00m
+[32m      4[39m df_datos = df.drop(columns = [33m"[39m[33mlabel[39m[33m"[39m)
+[32m----> [39m[32m6[39m corr_matrix = [43mdf_datos[49m[43m.[49m[43mcorr[49m[43m([49m[43m)[49m.abs()
+
+[36mFile [39m[32m~/.conda/envs/tfg/lib/python3.11/site-packages/pandas/core/frame.py:13117[39m, in [36mDataFrame.corr[39m[34m(self, method, min_periods, numeric_only)[39m
+[32m  13115[39m cols = data.columns
+[32m  13116[39m idx = cols.copy()
+[32m> [39m[32m13117[39m mat = [43mdata[49m[43m.[49m[43mto_numpy[49m[43m([49m[43mdtype[49m[43m=[49m[38;5;28;43mfloat[39;49m[43m,[49m[43m [49m[43mna_value[49m[43m=[49m[43mnp[49m[43m.[49m[43mnan[49m[43m,[49m[43m [49m[43mcopy[49m[43m=[49m[38;5;28;43;01mFalse[39;49;00m[43m)[49m
+[32m  13119[39m [38;5;28;01mif[39;00m method == [33m"[39m[33mpearson[39m[33m"[39m:
+[32m  13120[39m     correl = libalgos.nancorr(mat, minp=min_periods)
+
+[36mFile [39m[32m~/.conda/envs/tfg/lib/python3.11/site-packages/pandas/core/frame.py:2081[39m, in [36mDataFrame.to_numpy[39m[34m(self, dtype, copy, na_value)[39m
+[32m   2079[39m [38;5;28;01mif[39;00m dtype [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m:
+[32m   2080[39m     dtype = np.dtype(dtype)
+[32m-> [39m[32m2081[39m result = [38;5;28;43mself[39;49m[43m.[49m[43m_mgr[49m[43m.[49m[43mas_array[49m[43m([49m[43mdtype[49m[43m=[49m[43mdtype[49m[43m,[49m[43m [49m[43mcopy[49m[43m=[49m[43mcopy[49m[43m,[49m[43m [49m[43mna_value[49m[43m=[49m[43mna_value[49m[43m)[49m
+[32m   2082[39m [38;5;28;01mif[39;00m result.dtype [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m dtype:
+[32m   2083[39m     result = np.asarray(result, dtype=dtype)
+
+[36mFile [39m[32m~/.conda/envs/tfg/lib/python3.11/site-packages/pandas/core/internals/managers.py:1864[39m, in [36mBlockManager.as_array[39m[34m(self, dtype, copy, na_value)[39m
+[32m   1862[39m         arr.flags.writeable = [38;5;28;01mFalse[39;00m
+[32m   1863[39m [38;5;28;01melse[39;00m:
+[32m-> [39m[32m1864[39m     arr = [38;5;28;43mself[39;49m[43m.[49m[43m_interleave[49m[43m([49m[43mdtype[49m[43m=[49m[43mdtype[49m[43m,[49m[43m [49m[43mna_value[49m[43m=[49m[43mna_value[49m[43m)[49m
+[32m   1865[39m     [38;5;66;03m# The underlying data was copied within _interleave, so no need[39;00m
+[32m   1866[39m     [38;5;66;03m# to further copy if copy=True or setting na_value[39;00m
+[32m   1868[39m [38;5;28;01mif[39;00m na_value [38;5;129;01mis[39;00m lib.no_default:
+
+[36mFile [39m[32m~/.conda/envs/tfg/lib/python3.11/site-packages/pandas/core/internals/managers.py:1917[39m, in [36mBlockManager._interleave[39m[34m(self, dtype, na_value)[39m
+[32m   1911[39m rl = blk.mgr_locs
+[32m   1912[39m [38;5;28;01mif[39;00m blk.is_extension:
+[32m   1913[39m     [38;5;66;03m# Avoid implicit conversion of extension blocks to object[39;00m
+[32m   1914[39m 
+[32m   1915[39m     [38;5;66;03m# error: Item "ndarray" of "Union[ndarray, ExtensionArray]" has no[39;00m
+[32m   1916[39m     [38;5;66;03m# attribute "to_numpy"[39;00m
+[32m-> [39m[32m1917[39m     arr = [43mblk[49m[43m.[49m[43mvalues[49m[43m.[49m[43mto_numpy[49m[43m([49m[43m  [49m[38;5;66;43;03m# type: ignore[union-attr][39;49;00m
+[32m   1918[39m [43m        [49m[43mdtype[49m[43m=[49m[43mdtype[49m[43m,[49m
+[32m   1919[39m [43m        [49m[43mna_value[49m[43m=[49m[43mna_value[49m[43m,[49m
+[32m   1920[39m [43m    [49m[43m)[49m
+[32m   1921[39m [38;5;28;01melse[39;00m:
+[32m   1922[39m     arr = blk.get_values(dtype)
+
+[36mFile [39m[32m~/.conda/envs/tfg/lib/python3.11/site-packages/pandas/core/arrays/arrow/array.py:1717[39m, in [36mArrowExtensionArray.to_numpy[39m[34m(self, dtype, copy, na_value)[39m
+[32m   1715[39m result = data._pa_array.to_numpy()
+[32m   1716[39m [38;5;28;01mif[39;00m dtype [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m:
+[32m-> [39m[32m1717[39m     result = [43mresult[49m[43m.[49m[43mastype[49m[43m([49m[43mdtype[49m[43m,[49m[43m [49m[43mcopy[49m[43m=[49m[38;5;28;43;01mFalse[39;49;00m[43m)[49m
+[32m   1718[39m [38;5;28;01mif[39;00m copy:
+[32m   1719[39m     result = result.copy()
+
+[31mValueError[39m: could not convert string to float: '192.168.10.9_1841_205.174.165.73_8080_TCP_2017-07-07 09:04:13.990571'
+

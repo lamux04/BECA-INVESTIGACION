@@ -13,10 +13,10 @@ PATH_SCRIPT=03_codigo/preprocessing/$NOMBRE_SCRIPT
 
 BASE=/home/inginf/u32902122/TFG/$PATH_SCRIPT
 NOTEBOOK=$BASE.ipynb
-NOTEBOOK_OUT="/home/inginf/u32902122/TFG/04_experimentos/logs/notebooks/${NOMBRE_SCRIPT}_executed_${SLURM_JOB_ID}.ipynb"
+NOTEBOOK_OUT="/home/inginf/u32902122/TFG/04_experimentos/logs/notebooks/${NOMBRE_NOTEBOOK}_executed_${SLURM_JOB_ID}.ipynb"
 
-CSV_NVIDIA="/home/inginf/u32902122/TFG/04_experimentos/logs/nvidia/${NOMBRE_SCRIPT}_${SLURM_JOB_ID}_nvidia-smi.csv"
-TXT_NVIDIA="/home/inginf/u32902122/TFG/04_experimentos/logs/nvidia/${NOMBRE_SCRIPT}_${SLURM_JOB_ID}_nvidia-smi.txt"
+CSV_NVIDIA="/home/inginf/u32902122/TFG/04_experimentos/logs/nvidia/${NOMBRE_NOTEBOOK}_${SLURM_JOB_ID}_nvidia-smi.csv"
+TXT_NVIDIA="/home/inginf/u32902122/TFG/04_experimentos/logs/nvidia/${NOMBRE_NOTEBOOK}_${SLURM_JOB_ID}_nvidia-smi.txt"
 
 module load Anaconda3/2024.02-1
 source activate tfg

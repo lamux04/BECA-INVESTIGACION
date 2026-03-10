@@ -12,3 +12,6 @@
 - Tecnicas de undersampling
 - Preparar plantillas supercomputador
 - Preparar experimento eda_v2.ipynb
+
+10-03-2026
+- Ejecución de eda_v2.ipynb y eda_v3.ipynb
