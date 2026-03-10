@@ -183,3 +183,11 @@
 
 == Dataset CIC-IDS-2018 (eda_v2.ipynb)
 
+=== Problemas típicos
+
+- Hay algunos elementos que son etiqueta Label.
+- Hay algunos elementos de tipo string.
+- Hay filas con solo 3 valores posibles.
+- No hay columnas con alta correlación.
+- Hay filas con valores nulos.
+- Hay filas completas que son NaN. 
