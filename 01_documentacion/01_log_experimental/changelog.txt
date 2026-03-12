@@ -16,3 +16,7 @@
 10-03-2026
 - Ejecución de eda_v2.ipynb y eda_v3.ipynb
 - Identificación de datasets CIC18 y BCCC17
+
+12-03-2026
+- Limpieza dataset CIC17
+- Me he dado cuenta de que la columna protocol se debe de codificar.

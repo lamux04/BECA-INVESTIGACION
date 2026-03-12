@@ -98,6 +98,7 @@ Las transformaciones pueden ser las siguientes:
   inset: 10pt,
 
   [*Transformación*], [*Transformación ID*],
+  [Limpieza de datos v1 (preprocessing_cleanning_v1.ipynb)], [cleanning1]
 )
 
 === Versión
@@ -166,4 +167,14 @@ Esto se refiere a la fase del pipeline en la que se encuentra el script. Las fas
   [Mutación de etiquetas], [mutval],
   [Entrenamiento], [training],
   [Evaluación de los resultados], [evaluation]
+)
+
+#table(
+  columns: 2,
+  align: (center, center),
+  inset: 10pt,
+
+  [*Nombre del script*], [*¿Qué hace?*],
+
+  [preprocessing_cleanning_v1.ipynb], [Limpieza de los datos básica (homogenización de columnas, eliminación de valores únicos, eliminación de columnas con alta correlación, eliminación de valores infinito vacío y nulo, eliminación de filas duplicadas)]
 )
