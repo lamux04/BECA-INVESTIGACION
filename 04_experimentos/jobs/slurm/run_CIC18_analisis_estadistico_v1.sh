@@ -1,15 +1,15 @@
 #!/bin/bash
-#SBATCH --job-name=SCRIPT_IPYNB
+#SBATCH --job-name=CIC18_analisis_estadistico_v1
 #SBATCH --cpus-per-task=64
 #SBATCH --partition=normal
 #SBATCH --time=1-00:00:00
 #SBATCH --mem=200GB
-#SBATCH --output=/home/inginf/u32902122/TFG/04_experimentos/logs/out/output_SCRIPT_IPYNB.log
+#SBATCH --output=/home/inginf/u32902122/TFG/04_experimentos/logs/out/output_CIC18_analisis_estadistico_v1.log
 #SBATCH --mail-user=javier.labradormunoz@alum.uca.es
 #SBATCH --mail-type=BEGIN,END,FAIL,TIME_LIMIT_80
 
-NOMBRE_SCRIPT="SCRIPT_IPYNB"
-PATH_SCRIPT=path/al/script/$NOMBRE_SCRIPT
+NOMBRE_SCRIPT="CIC18_analisis_estadistico_v1"
+PATH_SCRIPT=03_codigo/CIC18/preprocessing/$NOMBRE_SCRIPT
 
 BASE=/home/inginf/u32902122/TFG/$PATH_SCRIPT
 NOTEBOOK=$BASE.ipynb

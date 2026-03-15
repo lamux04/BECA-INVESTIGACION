@@ -20,3 +20,20 @@
 12-03-2026
 - Limpieza dataset CIC17
 - Me he dado cuenta de que la columna protocol se debe de codificar.
+
+13-03-2026
+- Reorganizar proyecto (usar excel para el control de todo)
+- Limpieza dataset CIC17
+- Análisis estadístico posterior CIC17
+- Análisis estadístico inicial BCCC17
+- Limpieza dataset BCCC17
+- Análisis estadístico posterior BCCC17
+
+14-03-2026
+- Análisis estadístico inicial CIC18
+- Limpieza dataset CIC18
+- Análisis estadístico posterior CIC18
+- Limpieza y filtrado de todo terminado
+- División 80-20 CIC17
+- División 80-20 CIC18
+- División 80-20 BCCC17
