@@ -43,3 +43,16 @@
 - Transformar y dividir particiones CIC17 SIN BALANCEO
 - Transformar y dividir particiones CIC18 SIN BALANCEO
 - Transformar y dividir particiones BCCC17 SIN BALANCEO
+
+17-03-2026
+- Aplicar ENN a CIC17
+- Aplicar ENN a BCCC17
+- Aplicar RUS/SMOTE a CIC17
+- Mandar a ejecutar ENN a CIC18
+- Preparar datasets ENN CIC17 para entrenamiento
+- Preparar datasets ENN BCCC17 para entrenamiento
+- Mandar a ejecutar RUS/SMOTE BCCC17
+- TODO: Terminar ejecutar RUS/SMOTE BCCC17
+- TODO: Terminar ejecutar ENN CIC18
+- TODO: Transferir transformar RUS/SMOTE BCCC17
+- TODO: Ejecutar transformar ENN CIC18

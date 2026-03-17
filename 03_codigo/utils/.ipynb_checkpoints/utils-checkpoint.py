@@ -5,7 +5,7 @@ import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.model_selection import StratifiedKFold
 from imblearn.under_sampling import RandomUnderSampler
-
+from imblearn.under_sampling import EditedNearestNeighbours
 
 def cargar_dataset(nombre_dataset = "*", ruta_base="../../02_datasets/raw"):
     """
@@ -232,3 +232,111 @@ def undersample_clase_mayoritaria_rus(df, n_mayoritaria, label_col="LABEL", rand
     df_res = pd.concat([X_res, y_res], axis=1)
     
     return df_res
+
+def aplicar_enn(df, label_col="LABEL", n_neighbors=3, kind_sel="all"):
+    """
+    Aplica Edited Nearest Neighbours (ENN) a un DataFrame.
+
+    Parámetros:
+    - df: pandas DataFrame
+    - label_col: nombre de la columna etiqueta
+    - n_neighbors: número de vecinos para ENN
+    - kind_sel: "all" o "mode"
+        - "all": elimina una muestra si no coincide con todos sus vecinos
+        - "mode": elimina una muestra si no coincide con la mayoría
+
+    Devuelve:
+    - df_res: DataFrame resultante tras aplicar ENN
+    """
+
+    # Separar variables y etiqueta
+    X = df.drop(columns=[label_col])
+    y = df[label_col]
+
+    # Aplicar ENN
+    enn = EditedNearestNeighbours(
+        n_neighbors=n_neighbors,
+        kind_sel=kind_sel
+    )
+    X_res, y_res = enn.fit_resample(X, y)
+
+    # Reconstruir DataFrame
+    df_res = pd.DataFrame(X_res, columns=X.columns)
+    df_res[label_col] = y_res
+
+    return df_res
+
+import pandas as pd
+from imblearn.over_sampling import SMOTE
+from imblearn.under_sampling import RandomUnderSampler
+
+
+import pandas as pd
+from imblearn.over_sampling import SMOTE
+
+
+def balancear_y_mover_a_test(
+    df_train,
+    df_test,
+    label_col="LABEL",
+    target_n=10000,
+    random_state=42,
+    k_neighbors=5
+):
+    
+    df_train = df_train.copy()
+    df_test = df_test.copy()
+
+    clases = df_train[label_col].unique()
+
+    # guardamos índices a eliminar
+    indices_a_test = []
+
+    for clase in clases:
+        subset = df_train[df_train[label_col] == clase]
+
+        if len(subset) > target_n:
+            # muestreo aleatorio de los que se quedan
+            subset_keep = subset.sample(n=target_n, random_state=random_state)
+
+            # los que sobran se moverán a test
+            subset_remove = subset.drop(subset_keep.index)
+
+            indices_a_test.extend(subset_remove.index)
+
+    # mover a test
+    df_test = pd.concat([df_test, df_train.loc[indices_a_test]])
+
+    # eliminar del train
+    df_train = df_train.drop(indices_a_test)
+
+    # ---------- SMOTE ----------
+    
+    X = df_train.drop(columns=[label_col])
+    y = df_train[label_col]
+
+    class_counts = y.value_counts()
+
+    over_strategy = {
+        cls: target_n
+        for cls, count in class_counts.items()
+        if count < target_n
+    }
+
+    if over_strategy:
+
+        min_class_size = min(class_counts[cls] for cls in over_strategy)
+        k = min(k_neighbors, min_class_size - 1)
+
+        smote = SMOTE(
+            sampling_strategy=over_strategy,
+            random_state=random_state,
+            k_neighbors=k
+        )
+
+        X_res, y_res = smote.fit_resample(X, y)
+
+        df_train = pd.DataFrame(X_res, columns=X.columns)
+        df_train[label_col] = y_res
+
+    return df_train, df_test

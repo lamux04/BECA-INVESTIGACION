@@ -1,0 +1,3 @@
+/var/spool/slurmd/job96680/slurm_script: línea 25: nvidia-smi: no se encontró la orden
+/var/spool/slurmd/job96680/slurm_script: línea 28: nvidia-smi: no se encontró la orden
+[NbConvertApp] Converting notebook /home/inginf/u32902122/TFG/03_codigo/CIC18/02_rebalancing/CIC18__sin_balanceo__v1__ENN_v1.ipynb to notebook

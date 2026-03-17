@@ -1,0 +1,4 @@
+/var/spool/slurmd/job96697/slurm_script: línea 25: nvidia-smi: no se encontró la orden
+/var/spool/slurmd/job96697/slurm_script: línea 28: nvidia-smi: no se encontró la orden
+[NbConvertApp] Converting notebook /home/inginf/u32902122/TFG/03_codigo/CIC17/03_preparation/CIC17__RUS_SMOTE__v1__transformar_v1.ipynb to notebook
+[NbConvertApp] Writing 3381 bytes to /home/inginf/u32902122/TFG/04_experimentos/logs/notebooks/CIC17__RUS_SMOTE__v1__transformar_v1_executed_96697.ipynb
