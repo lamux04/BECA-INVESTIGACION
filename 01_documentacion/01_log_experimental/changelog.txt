@@ -37,3 +37,9 @@
 - División 80-20 CIC17
 - División 80-20 CIC18
 - División 80-20 BCCC17
+
+15-03-2026
+- Modificar y juntar excels
+- Transformar y dividir particiones CIC17 SIN BALANCEO
+- Transformar y dividir particiones CIC18 SIN BALANCEO
+- Transformar y dividir particiones BCCC17 SIN BALANCEO

@@ -3,6 +3,8 @@ import glob
 import os
 import numpy as np
 from sklearn.model_selection import train_test_split
+from sklearn.model_selection import StratifiedKFold
+from imblearn.under_sampling import RandomUnderSampler
 
 
 def cargar_dataset(nombre_dataset = "*", ruta_base="../../02_datasets/raw"):
@@ -184,3 +186,49 @@ def dividir_train_test_stratified(df, label_col="LABEL", test_size=0.2, random_s
     test_df = test_df.reset_index(drop=True)
     
     return train_df, test_df
+
+def dataframe_a_columna_string(df, sep="|", nombre_col="text"):
+    
+    df_texto = df.astype(str).agg(sep.join, axis=1)
+    
+    return df_texto.to_frame(name=nombre_col)
+
+
+
+def dividir_en_k_particiones_stratified(df, label_col="LABEL", k=5, random_state=42):
+    
+    skf = StratifiedKFold(n_splits=k, shuffle=True, random_state=random_state)
+    
+    X = df.drop(columns=label_col)
+    y = df[label_col]
+    
+    particiones = []
+    
+    for _, test_index in skf.split(X, y):
+        fold_df = df.iloc[test_index].reset_index(drop=True)
+        particiones.append(fold_df)
+    
+    return particiones
+
+
+def undersample_clase_mayoritaria_rus(df, n_mayoritaria, label_col="LABEL", random_state=42):
+    
+    X = df.drop(columns=label_col)
+    y = df[label_col]
+    
+    # encontrar la clase mayoritaria
+    clase_mayoritaria = y.value_counts().idxmax()
+    
+    # diccionario que indica cuántas muestras queremos de esa clase
+    sampling_strategy = {clase_mayoritaria: n_mayoritaria}
+    
+    rus = RandomUnderSampler(
+        sampling_strategy=sampling_strategy,
+        random_state=random_state
+    )
+    
+    X_res, y_res = rus.fit_resample(X, y)
+    
+    df_res = pd.concat([X_res, y_res], axis=1)
+    
+    return df_res
