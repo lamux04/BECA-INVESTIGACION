@@ -1,14 +1,14 @@
 #!/bin/bash
-#SBATCH --job-name=CIC18__sin_balanceo__v1__ENN_v1
+#SBATCH --job-name=CIC18__sin_balanceo__v1__RUS_SMOTE_v1
 #SBATCH --cpus-per-task=64
 #SBATCH --partition=normal
-#SBATCH --time=5-00:00:00
+#SBATCH --time=1-00:00:00
 #SBATCH --mem=200GB
-#SBATCH --output=/home/inginf/u32902122/TFG/04_experimentos/logs/out/output_CIC18__sin_balanceo__v1__ENN_v1.log
+#SBATCH --output=/home/inginf/u32902122/TFG/04_experimentos/logs/out/output_CIC18__sin_balanceo__v1__RUS_SMOTE_v1.log
 #SBATCH --mail-user=javier.labradormunoz@alum.uca.es
 #SBATCH --mail-type=BEGIN,END,FAIL,TIME_LIMIT_80
 
-NOMBRE_SCRIPT="CIC18__sin_balanceo__v1__ENN_v1"
+NOMBRE_SCRIPT="CIC18__sin_balanceo__v1__RUS_SMOTE_v1"
 PATH_SCRIPT=03_codigo/CIC18/02_rebalancing/$NOMBRE_SCRIPT
 
 BASE=/home/inginf/u32902122/TFG/$PATH_SCRIPT

@@ -6,6 +6,8 @@ from sklearn.model_selection import train_test_split
 from sklearn.model_selection import StratifiedKFold
 from imblearn.under_sampling import RandomUnderSampler
 from imblearn.under_sampling import EditedNearestNeighbours
+from imblearn.over_sampling import SMOTE
+
 
 def cargar_dataset(nombre_dataset = "*", ruta_base="../../02_datasets/raw"):
     """
@@ -187,26 +189,38 @@ def dividir_train_test_stratified(df, label_col="LABEL", test_size=0.2, random_s
     
     return train_df, test_df
 
-def dataframe_a_columna_string(df, sep="|", nombre_col="text"):
+def dataframe_a_source_target(df, label_col="LABEL", sep="|"):
     
-    df_texto = df.astype(str).agg(sep.join, axis=1)
+    # Separar X e y
+    X = df.drop(columns=[label_col]).astype(str)
+    y = df[label_col].astype(str)
     
-    return df_texto.to_frame(name=nombre_col)
-
-
+    # Crear source_text (todas las features unidas)
+    source_text = X.agg(sep.join, axis=1)
+    
+    # Crear DataFrame final
+    df_final = pd.DataFrame({
+        "source_text": source_text,
+        "target_text": y
+    })
+    
+    return df_final
 
 def dividir_en_k_particiones_stratified(df, label_col="LABEL", k=5, random_state=42):
     
     skf = StratifiedKFold(n_splits=k, shuffle=True, random_state=random_state)
     
-    X = df.drop(columns=label_col)
+    X = df.drop(columns=[label_col])
     y = df[label_col]
     
     particiones = []
     
-    for _, test_index in skf.split(X, y):
-        fold_df = df.iloc[test_index].reset_index(drop=True)
-        particiones.append(fold_df)
+    for train_index, val_index in skf.split(X, y):
+        
+        df_train_fold = df.iloc[train_index].reset_index(drop=True)
+        df_val_fold = df.iloc[val_index].reset_index(drop=True)
+        
+        particiones.append((df_train_fold, df_val_fold))
     
     return particiones
 
@@ -266,13 +280,6 @@ def aplicar_enn(df, label_col="LABEL", n_neighbors=3, kind_sel="all"):
 
     return df_res
 
-import pandas as pd
-from imblearn.over_sampling import SMOTE
-from imblearn.under_sampling import RandomUnderSampler
-
-
-import pandas as pd
-from imblearn.over_sampling import SMOTE
 
 
 def balancear_y_mover_a_test(

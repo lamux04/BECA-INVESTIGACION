@@ -52,7 +52,10 @@
 - Preparar datasets ENN CIC17 para entrenamiento
 - Preparar datasets ENN BCCC17 para entrenamiento
 - Mandar a ejecutar RUS/SMOTE BCCC17
-- TODO: Terminar ejecutar RUS/SMOTE BCCC17
+
+18-03-2026
+- Aplicar RUS/SMOTE BCCC17
+- Aplicar RUS/SMOTE CIC18
+- Preparar RUS/SMOTE BCCC17 para entrenamiento
+- Preparar RUS/SMOTE CIC18 para entrenamiento
 - TODO: Terminar ejecutar ENN CIC18
-- TODO: Transferir transformar RUS/SMOTE BCCC17
-- TODO: Ejecutar transformar ENN CIC18
