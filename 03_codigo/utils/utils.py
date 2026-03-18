@@ -7,6 +7,8 @@ from sklearn.model_selection import StratifiedKFold
 from imblearn.under_sampling import RandomUnderSampler
 from imblearn.under_sampling import EditedNearestNeighbours
 from imblearn.over_sampling import SMOTE
+from imblearn.under_sampling import NearMiss
+
 
 
 def cargar_dataset(nombre_dataset = "*", ruta_base="../../02_datasets/raw"):
@@ -345,5 +347,88 @@ def balancear_y_mover_a_test(
 
         df_train = pd.DataFrame(X_res, columns=X.columns)
         df_train[label_col] = y_res
+
+    return df_train, df_test
+
+
+
+def balancear_nearmiss_y_mover_a_test(
+    df_train,
+    df_test,
+    label_col="LABEL",
+    target_n=10000,
+    random_state=42,
+    k_neighbors=5,
+    version_nearmiss=1,
+    n_neighbors_nearmiss=3
+):
+    df_train = df_train.copy()
+    df_test = df_test.copy()
+
+    # Separar X e y
+    X_train = df_train.drop(columns=[label_col])
+    y_train = df_train[label_col]
+
+    class_counts = y_train.value_counts()
+
+    # --------- UNDER con NearMiss ----------
+    # Solo las clases con más de target_n se reducen a target_n
+    under_strategy = {
+        cls: target_n
+        for cls, count in class_counts.items()
+        if count > target_n
+    }
+
+    if under_strategy:
+        nm = NearMiss(
+            sampling_strategy=under_strategy,
+            version=version_nearmiss,
+            n_neighbors=n_neighbors_nearmiss
+        )
+
+        X_under, y_under = nm.fit_resample(X_train, y_train)
+
+        # Índices seleccionados por NearMiss que se quedan en train
+        indices_keep = df_train.index[nm.sample_indices_]
+
+        # Índices eliminados que se moverán a test
+        indices_remove = df_train.index.difference(indices_keep)
+
+        # Mover eliminados a test
+        df_test = pd.concat([df_test, df_train.loc[indices_remove]], ignore_index=True)
+
+        # Reconstruir train tras NearMiss
+        df_train = pd.DataFrame(X_under, columns=X_train.columns)
+        df_train[label_col] = y_under
+    else:
+        indices_remove = []
+
+    # --------- SMOTE ----------
+    X = df_train.drop(columns=[label_col])
+    y = df_train[label_col]
+
+    class_counts = y.value_counts()
+
+    over_strategy = {
+        cls: target_n
+        for cls, count in class_counts.items()
+        if count < target_n
+    }
+
+    if over_strategy:
+        min_class_size = min(class_counts[cls] for cls in over_strategy)
+        k = min(k_neighbors, min_class_size - 1)
+
+        if k >= 1:
+            smote = SMOTE(
+                sampling_strategy=over_strategy,
+                random_state=random_state,
+                k_neighbors=k
+            )
+
+            X_res, y_res = smote.fit_resample(X, y)
+
+            df_train = pd.DataFrame(X_res, columns=X.columns)
+            df_train[label_col] = y_res
 
     return df_train, df_test

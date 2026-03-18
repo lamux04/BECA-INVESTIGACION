@@ -58,4 +58,10 @@
 - Aplicar RUS/SMOTE CIC18
 - Preparar RUS/SMOTE BCCC17 para entrenamiento
 - Preparar RUS/SMOTE CIC18 para entrenamiento
+- Arreglar todos los transformar para preparar bien el entrenamiento
+- Aplicar NearMiss/SMOTE CIC17
+- Aplicar NearMiss/SMOTE BCCC17
+- Aplicar NearMiss/SMOTE CIC18
+- Preparar NearMiss/SMOTE CIC17 para entrenamiento
+- Preparar NearMiss/SMOTE CIC18 para entrenamiento
 - TODO: Terminar ejecutar ENN CIC18

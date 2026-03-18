@@ -1,4 +1,129 @@
-/var/spool/slurmd/job96685/slurm_script: línea 25: nvidia-smi: no se encontró la orden
-/var/spool/slurmd/job96685/slurm_script: línea 28: nvidia-smi: no se encontró la orden
+/var/spool/slurmd/job96766/slurm_script: línea 25: nvidia-smi: no se encontró la orden
+/var/spool/slurmd/job96766/slurm_script: línea 28: nvidia-smi: no se encontró la orden
 [NbConvertApp] Converting notebook /home/inginf/u32902122/TFG/03_codigo/CIC17/03_preparation/CIC17__ENN__v1__transformar_v1.ipynb to notebook
-[NbConvertApp] Writing 3357 bytes to /home/inginf/u32902122/TFG/04_experimentos/logs/notebooks/CIC17__ENN__v1__transformar_v1_executed_96685.ipynb
+Traceback (most recent call last):
+  File "/home/inginf/u32902122/.conda/envs/tfg/bin/jupyter-nbconvert", line 10, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/home/inginf/u32902122/.conda/envs/tfg/lib/python3.11/site-packages/jupyter_core/application.py", line 284, in launch_instance
+    super().launch_instance(argv=argv, **kwargs)
+  File "/home/inginf/u32902122/.conda/envs/tfg/lib/python3.11/site-packages/traitlets/config/application.py", line 1075, in launch_instance
+    app.start()
+  File "/home/inginf/u32902122/.conda/envs/tfg/lib/python3.11/site-packages/nbconvert/nbconvertapp.py", line 420, in start
+    self.convert_notebooks()
+  File "/home/inginf/u32902122/.conda/envs/tfg/lib/python3.11/site-packages/nbconvert/nbconvertapp.py", line 597, in convert_notebooks
+    self.convert_single_notebook(notebook_filename)
+  File "/home/inginf/u32902122/.conda/envs/tfg/lib/python3.11/site-packages/nbconvert/nbconvertapp.py", line 563, in convert_single_notebook
+    output, resources = self.export_single_notebook(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/inginf/u32902122/.conda/envs/tfg/lib/python3.11/site-packages/nbconvert/nbconvertapp.py", line 487, in export_single_notebook
+    output, resources = self.exporter.from_filename(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/inginf/u32902122/.conda/envs/tfg/lib/python3.11/site-packages/nbconvert/exporters/exporter.py", line 201, in from_filename
+    return self.from_file(f, resources=resources, **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/inginf/u32902122/.conda/envs/tfg/lib/python3.11/site-packages/nbconvert/exporters/exporter.py", line 220, in from_file
+    return self.from_notebook_node(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/inginf/u32902122/.conda/envs/tfg/lib/python3.11/site-packages/nbconvert/exporters/notebook.py", line 36, in from_notebook_node
+    nb_copy, resources = super().from_notebook_node(nb, resources, **kw)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/inginf/u32902122/.conda/envs/tfg/lib/python3.11/site-packages/nbconvert/exporters/exporter.py", line 154, in from_notebook_node
+    nb_copy, resources = self._preprocess(nb_copy, resources)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/inginf/u32902122/.conda/envs/tfg/lib/python3.11/site-packages/nbconvert/exporters/exporter.py", line 353, in _preprocess
+    nbc, resc = preprocessor(nbc, resc)
+                ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/inginf/u32902122/.conda/envs/tfg/lib/python3.11/site-packages/nbconvert/preprocessors/base.py", line 48, in __call__
+    return self.preprocess(nb, resources)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/inginf/u32902122/.conda/envs/tfg/lib/python3.11/site-packages/nbconvert/preprocessors/execute.py", line 103, in preprocess
+    self.preprocess_cell(cell, resources, index)
+  File "/home/inginf/u32902122/.conda/envs/tfg/lib/python3.11/site-packages/nbconvert/preprocessors/execute.py", line 124, in preprocess_cell
+    cell = self.execute_cell(cell, index, store_history=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/inginf/u32902122/.conda/envs/tfg/lib/python3.11/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/inginf/u32902122/.conda/envs/tfg/lib/python3.11/asyncio/base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/home/inginf/u32902122/.conda/envs/tfg/lib/python3.11/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/home/inginf/u32902122/.conda/envs/tfg/lib/python3.11/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+df_nuevo_train = dataframe_a_source_target(df_train)
+df_nuevo_test = dataframe_a_source_target(df_test)
+guardar_dataset_csv(df_nuevo_train, nombre_train_generado, ruta_base_dataset_generado)
+guardar_dataset_csv(df_nuevo_test, nombre_test_generado, ruta_base_dataset_generado)
+
+------------------
+
+
+[31m---------------------------------------------------------------------------[39m
+[31mTypeError[39m                                 Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[6][39m[32m, line 2[39m
+[32m      1[39m df_nuevo_train = dataframe_a_source_target(df_train)
+[32m----> [39m[32m2[39m df_nuevo_test = [43mdataframe_a_source_target[49m[43m([49m[43mdf_test[49m[43m)[49m
+[32m      3[39m guardar_dataset_csv(df_nuevo_train, nombre_train_generado, ruta_base_dataset_generado)
+[32m      4[39m guardar_dataset_csv(df_nuevo_test, nombre_test_generado, ruta_base_dataset_generado)
+
+[36mFile [39m[32m/LUSTRE/home/inginf/u32902122/TFG/03_codigo/CIC17/03_preparation/../../utils/utils.py:199[39m, in [36mdataframe_a_source_target[39m[34m(df, label_col, sep)[39m
+[32m    196[39m y = df[label_col].astype([38;5;28mstr[39m)
+[32m    198[39m [38;5;66;03m# Crear source_text (todas las features unidas)[39;00m
+[32m--> [39m[32m199[39m source_text = [43mX[49m[43m.[49m[43magg[49m[43m([49m[43msep[49m[43m.[49m[43mjoin[49m[43m,[49m[43m [49m[43maxis[49m[43m=[49m[32;43m1[39;49m[43m)[49m
+[32m    201[39m [38;5;66;03m# Crear DataFrame final[39;00m
+[32m    202[39m df_final = pd.DataFrame({
+[32m    203[39m     [33m"[39m[33msource_text[39m[33m"[39m: source_text,
+[32m    204[39m     [33m"[39m[33mtarget_text[39m[33m"[39m: y
+[32m    205[39m })
+
+[36mFile [39m[32m~/.conda/envs/tfg/lib/python3.11/site-packages/pandas/core/frame.py:12030[39m, in [36mDataFrame.aggregate[39m[34m(self, func, axis, *args, **kwargs)[39m
+[32m  12027[39m axis = [38;5;28mself[39m._get_axis_number(axis)
+[32m  12029[39m op = frame_apply([38;5;28mself[39m, func=func, axis=axis, args=args, kwargs=kwargs)
+[32m> [39m[32m12030[39m result = [43mop[49m[43m.[49m[43magg[49m[43m([49m[43m)[49m
+[32m  12031[39m result = reconstruct_and_relabel_result(result, func, **kwargs)
+[32m  12032[39m [38;5;28;01mreturn[39;00m result
+
+[36mFile [39m[32m~/.conda/envs/tfg/lib/python3.11/site-packages/pandas/core/apply.py:1036[39m, in [36mFrameApply.agg[39m[34m(self)[39m
+[32m   1033[39m     result = result.T [38;5;28;01mif[39;00m result [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m [38;5;28;01melse[39;00m result
+[32m   1035[39m [38;5;28;01mif[39;00m result [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m:
+[32m-> [39m[32m1036[39m     result = [38;5;28;43mself[39;49m[43m.[49m[43mobj[49m[43m.[49m[43mapply[49m[43m([49m[38;5;28;43mself[39;49m[43m.[49m[43mfunc[49m[43m,[49m[43m [49m[43maxis[49m[43m,[49m[43m [49m[43margs[49m[43m=[49m[38;5;28;43mself[39;49m[43m.[49m[43margs[49m[43m,[49m[43m [49m[43m*[49m[43m*[49m[38;5;28;43mself[39;49m[43m.[49m[43mkwargs[49m[43m)[49m
+[32m   1038[39m [38;5;28;01mreturn[39;00m result
+
+[36mFile [39m[32m~/.conda/envs/tfg/lib/python3.11/site-packages/pandas/core/frame.py:12419[39m, in [36mDataFrame.apply[39m[34m(self, func, axis, raw, result_type, args, by_row, engine, engine_kwargs, **kwargs)[39m
+[32m  12405[39m         [38;5;28;01mraise[39;00m [38;5;167;01mValueError[39;00m([33mf[39m[33m"[39m[33mUnknown engine [39m[33m'[39m[38;5;132;01m{[39;00mengine[38;5;132;01m}[39;00m[33m'[39m[33m"[39m)
+[32m  12407[39m     op = frame_apply(
+[32m  12408[39m         [38;5;28mself[39m,
+[32m  12409[39m         func=func,
+[32m   (...)[39m[32m  12417[39m         kwargs=kwargs,
+[32m  12418[39m     )
+[32m> [39m[32m12419[39m     [38;5;28;01mreturn[39;00m [43mop[49m[43m.[49m[43mapply[49m[43m([49m[43m)[49m.__finalize__([38;5;28mself[39m, method=[33m"[39m[33mapply[39m[33m"[39m)
+[32m  12420[39m [38;5;28;01melif[39;00m [38;5;28mhasattr[39m(engine, [33m"[39m[33m__pandas_udf__[39m[33m"[39m):
+[32m  12421[39m     [38;5;28;01mif[39;00m result_type [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m:
+
+[36mFile [39m[32m~/.conda/envs/tfg/lib/python3.11/site-packages/pandas/core/apply.py:1015[39m, in [36mFrameApply.apply[39m[34m(self)[39m
+[32m   1012[39m [38;5;28;01melif[39;00m [38;5;28mself[39m.raw:
+[32m   1013[39m     [38;5;28;01mreturn[39;00m [38;5;28mself[39m.apply_raw(engine=[38;5;28mself[39m.engine, engine_kwargs=[38;5;28mself[39m.engine_kwargs)
+[32m-> [39m[32m1015[39m [38;5;28;01mreturn[39;00m [38;5;28;43mself[39;49m[43m.[49m[43mapply_standard[49m[43m([49m[43m)[49m
+
+[36mFile [39m[32m~/.conda/envs/tfg/lib/python3.11/site-packages/pandas/core/apply.py:1167[39m, in [36mFrameApply.apply_standard[39m[34m(self)[39m
+[32m   1165[39m [38;5;28;01mdef[39;00m[38;5;250m [39m[34mapply_standard[39m([38;5;28mself[39m):
+[32m   1166[39m     [38;5;28;01mif[39;00m [38;5;28mself[39m.engine == [33m"[39m[33mpython[39m[33m"[39m:
+[32m-> [39m[32m1167[39m         results, res_index = [38;5;28;43mself[39;49m[43m.[49m[43mapply_series_generator[49m[43m([49m[43m)[49m
+[32m   1168[39m     [38;5;28;01melse[39;00m:
+[32m   1169[39m         results, res_index = [38;5;28mself[39m.apply_series_numba()
+
+[36mFile [39m[32m~/.conda/envs/tfg/lib/python3.11/site-packages/pandas/core/apply.py:1183[39m, in [36mFrameApply.apply_series_generator[39m[34m(self)[39m
+[32m   1180[39m results = {}
+[32m   1182[39m [38;5;28;01mfor[39;00m i, v [38;5;129;01min[39;00m [38;5;28menumerate[39m(series_gen):
+[32m-> [39m[32m1183[39m     results[i] = [38;5;28;43mself[39;49m[43m.[49m[43mfunc[49m[43m([49m[43mv[49m[43m,[49m[43m [49m[43m*[49m[38;5;28;43mself[39;49m[43m.[49m[43margs[49m[43m,[49m[43m [49m[43m*[49m[43m*[49m[38;5;28;43mself[39;49m[43m.[49m[43mkwargs[49m[43m)[49m
+[32m   1184[39m     [38;5;28;01mif[39;00m [38;5;28misinstance[39m(results[i], ABCSeries):
+[32m   1185[39m         [38;5;66;03m# If we have a view on v, we need to make a copy because[39;00m
+[32m   1186[39m         [38;5;66;03m#  series_generator will swap out the underlying data[39;00m
+[32m   1187[39m         results[i] = results[i].copy(deep=[38;5;28;01mFalse[39;00m)
+
+[31mTypeError[39m: sequence item 14: expected str instance, float found
+
