@@ -17,8 +17,7 @@ from transformers import (
     Seq2SeqTrainingArguments,
     Seq2SeqTrainer
 )
-
-
+import torch
 
 
 
@@ -450,16 +449,24 @@ class SimpleT5Wrapper:
         self.model = None
         self.model_type = None
         self.model_name_or_path = None
+        self.device = torch.device("cpu")
 
-    def from_pretrained(self, model_type, model_name_or_path):
+    def from_pretrained(self, model_type, model_name_or_path, use_gpu=True):
         if model_type.lower() != "t5":
             raise ValueError("Solo se soporta model_type='t5'.")
 
         self.model_type = model_type
         self.model_name_or_path = str(model_name_or_path)
 
+        self.device = torch.device(
+            "cuda" if use_gpu and torch.cuda.is_available() else "cpu"
+        )
+
         self.tokenizer = T5Tokenizer.from_pretrained(self.model_name_or_path)
         self.model = T5ForConditionalGeneration.from_pretrained(self.model_name_or_path)
+
+        # mover explícitamente el modelo al device correcto
+        self.model.to(self.device)
 
     def _preprocess_function(self, examples, source_max_token_len, target_max_token_len):
         model_inputs = self.tokenizer(
@@ -563,6 +570,12 @@ class SimpleT5Wrapper:
         elif precision != 32:
             raise ValueError("precision solo puede ser 16 o 32.")
 
+        # reforzar device del modelo
+        self.device = torch.device(
+            "cuda" if use_gpu and torch.cuda.is_available() else "cpu"
+        )
+        self.model.to(self.device)
+
         training_args = Seq2SeqTrainingArguments(
             output_dir=outputdir,
             evaluation_strategy="epoch",
@@ -575,6 +588,7 @@ class SimpleT5Wrapper:
             generation_max_length=target_max_token_len,
             dataloader_num_workers=dataloader_num_workers,
             fp16=fp16,
+            no_cuda=not (use_gpu and torch.cuda.is_available()),
             save_total_limit=2,
             load_best_model_at_end=True,
             metric_for_best_model="accuracy",

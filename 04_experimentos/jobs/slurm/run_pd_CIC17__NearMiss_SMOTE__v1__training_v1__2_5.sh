@@ -1,14 +1,15 @@
 #!/bin/bash
-#SBATCH --job-name=pd_CIC17__RUS_SMOTE__v1__training_v1__3_5
+#SBATCH --job-name=pd_CIC17__NearMiss_SMOTE__v1__training_v1__2_5
 #SBATCH --cpus-per-task=64
 #SBATCH --partition=gpu
+#SBATCH --gres=gpu:1
 #SBATCH --time=1-00:00:00
 #SBATCH --mem=200GB
-#SBATCH --output=/home/inginf/u32902122/TFG/04_experimentos/logs/out/output_pd_CIC17__RUS_SMOTE__v1__training_v1__3_5.log
+#SBATCH --output=/home/inginf/u32902122/TFG/04_experimentos/logs/out/output_pd_CIC17__NearMiss_SMOTE__v1__training_v1__2_5.log
 #SBATCH --mail-user=javier.labradormunoz@alum.uca.es
 #SBATCH --mail-type=BEGIN,END,FAIL,TIME_LIMIT_80
 
-NOMBRE_SCRIPT="pd_CIC17__RUS_SMOTE__v1__training_v1__3_5"
+NOMBRE_SCRIPT="pd_CIC17__NearMiss_SMOTE__v1__training_v1__2_5"
 PATH_SCRIPT=03_codigo/CIC17/04_training/$NOMBRE_SCRIPT
 
 BASE=/home/inginf/u32902122/TFG/$PATH_SCRIPT
