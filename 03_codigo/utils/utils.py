@@ -8,6 +8,17 @@ from imblearn.under_sampling import RandomUnderSampler
 from imblearn.under_sampling import EditedNearestNeighbours
 from imblearn.over_sampling import SMOTE
 from imblearn.under_sampling import NearMiss
+from pathlib import Path
+from datasets import Dataset
+from transformers import (
+    T5Tokenizer,
+    T5ForConditionalGeneration,
+    DataCollatorForSeq2Seq,
+    Seq2SeqTrainingArguments,
+    Seq2SeqTrainer
+)
+
+
 
 
 
@@ -432,3 +443,157 @@ def balancear_nearmiss_y_mover_a_test(
             df_train[label_col] = y_res
 
     return df_train, df_test
+
+class SimpleT5Wrapper:
+    def __init__(self):
+        self.tokenizer = None
+        self.model = None
+        self.model_type = None
+        self.model_name_or_path = None
+
+    def from_pretrained(self, model_type, model_name_or_path):
+        if model_type.lower() != "t5":
+            raise ValueError("Solo se soporta model_type='t5'.")
+
+        self.model_type = model_type
+        self.model_name_or_path = str(model_name_or_path)
+
+        self.tokenizer = T5Tokenizer.from_pretrained(self.model_name_or_path)
+        self.model = T5ForConditionalGeneration.from_pretrained(self.model_name_or_path)
+
+    def _preprocess_function(self, examples, source_max_token_len, target_max_token_len):
+        model_inputs = self.tokenizer(
+            examples["source_text"],
+            max_length=source_max_token_len,
+            truncation=True,
+            padding=False
+        )
+
+        labels = self.tokenizer(
+            examples["target_text"],
+            max_length=target_max_token_len,
+            truncation=True,
+            padding=False
+        )
+
+        model_inputs["labels"] = labels["input_ids"]
+        return model_inputs
+
+    def _compute_metrics_builder(self):
+        tokenizer = self.tokenizer
+
+        def compute_metrics(eval_preds):
+            preds, labels = eval_preds
+
+            if isinstance(preds, tuple):
+                preds = preds[0]
+
+            if preds.ndim == 3:
+                pred_ids = np.argmax(preds, axis=-1)
+            else:
+                pred_ids = preds
+
+            labels = np.where(labels != -100, labels, tokenizer.pad_token_id)
+
+            pred_texts = tokenizer.batch_decode(pred_ids, skip_special_tokens=True)
+            label_texts = tokenizer.batch_decode(labels, skip_special_tokens=True)
+
+            pred_texts = [p.strip() for p in pred_texts]
+            label_texts = [l.strip() for l in label_texts]
+
+            accuracy = sum(p == l for p, l in zip(pred_texts, label_texts)) / len(label_texts)
+            return {"accuracy": accuracy}
+
+        return compute_metrics
+
+    def train(
+        self,
+        train_df,
+        eval_df,
+        source_max_token_len=512,
+        target_max_token_len=128,
+        batch_size=8,
+        max_epochs=1,
+        outputdir="outputs",
+        precision=32,
+        use_gpu=True,
+        dataloader_num_workers=0
+    ):
+        if self.tokenizer is None or self.model is None:
+            raise ValueError("Primero debes llamar a from_pretrained().")
+
+        outputdir = str(outputdir)
+        Path(outputdir).mkdir(parents=True, exist_ok=True)
+
+        train_df = train_df.copy()
+        eval_df = eval_df.copy()
+
+        train_df["source_text"] = train_df["source_text"].astype(str)
+        train_df["target_text"] = train_df["target_text"].astype(str)
+
+        eval_df["source_text"] = eval_df["source_text"].astype(str)
+        eval_df["target_text"] = eval_df["target_text"].astype(str)
+
+        train_dataset = Dataset.from_pandas(
+            train_df[["source_text", "target_text"]],
+            preserve_index=False
+        )
+        eval_dataset = Dataset.from_pandas(
+            eval_df[["source_text", "target_text"]],
+            preserve_index=False
+        )
+
+        preprocess = lambda examples: self._preprocess_function(
+            examples,
+            source_max_token_len=source_max_token_len,
+            target_max_token_len=target_max_token_len
+        )
+
+        train_dataset = train_dataset.map(preprocess, batched=True)
+        eval_dataset = eval_dataset.map(preprocess, batched=True)
+
+        data_collator = DataCollatorForSeq2Seq(
+            tokenizer=self.tokenizer,
+            model=self.model
+        )
+
+        fp16 = False
+        if precision == 16:
+            fp16 = True
+        elif precision != 32:
+            raise ValueError("precision solo puede ser 16 o 32.")
+
+        training_args = Seq2SeqTrainingArguments(
+            output_dir=outputdir,
+            evaluation_strategy="epoch",
+            save_strategy="epoch",
+            logging_strategy="epoch",
+            per_device_train_batch_size=batch_size,
+            per_device_eval_batch_size=batch_size,
+            num_train_epochs=max_epochs,
+            predict_with_generate=True,
+            generation_max_length=target_max_token_len,
+            dataloader_num_workers=dataloader_num_workers,
+            fp16=fp16,
+            save_total_limit=2,
+            load_best_model_at_end=True,
+            metric_for_best_model="accuracy",
+            greater_is_better=True,
+            report_to="none"
+        )
+
+        trainer = Seq2SeqTrainer(
+            model=self.model,
+            args=training_args,
+            train_dataset=train_dataset,
+            eval_dataset=eval_dataset,
+            tokenizer=self.tokenizer,
+            data_collator=data_collator,
+            compute_metrics=self._compute_metrics_builder()
+        )
+
+        trainer.train()
+        trainer.save_model(outputdir)
+        self.tokenizer.save_pretrained(outputdir)
+
+        return trainer

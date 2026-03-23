@@ -65,3 +65,6 @@
 - Preparar NearMiss/SMOTE CIC17 para entrenamiento
 - Preparar NearMiss/SMOTE CIC18 para entrenamiento
 - TODO: Terminar ejecutar ENN CIC18
+
+20-03-2026
+- Preparado script de entrenamiento CIC17 1_5
