@@ -578,7 +578,7 @@ class SimpleT5Wrapper:
 
         training_args = Seq2SeqTrainingArguments(
             output_dir=outputdir,
-            evaluation_strategy="epoch",
+            eval_strategy="epoch",
             save_strategy="epoch",
             logging_strategy="epoch",
             per_device_train_batch_size=batch_size,
@@ -588,7 +588,6 @@ class SimpleT5Wrapper:
             generation_max_length=target_max_token_len,
             dataloader_num_workers=dataloader_num_workers,
             fp16=fp16,
-            no_cuda=not (use_gpu and torch.cuda.is_available()),
             save_total_limit=2,
             load_best_model_at_end=True,
             metric_for_best_model="accuracy",
@@ -601,7 +600,6 @@ class SimpleT5Wrapper:
             args=training_args,
             train_dataset=train_dataset,
             eval_dataset=eval_dataset,
-            tokenizer=self.tokenizer,
             data_collator=data_collator,
             compute_metrics=self._compute_metrics_builder()
         )

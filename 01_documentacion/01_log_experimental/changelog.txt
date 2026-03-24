@@ -68,3 +68,15 @@
 
 20-03-2026
 - Preparado script de entrenamiento CIC17 1_5
+
+23-03-2026
+- Solucionando errores scripts de entrenamiento
+
+24-03-2027
+- Crear scripts de entrenamiento RUS/SMOTE CIC17
+- Crear scripts de entrenamiento RUS/SMOTE BCCC17
+- Crear scripts de entrenamiento RUS/SMOTE CIC18
+- Crear scripts de entrenamiento NearMiss/SMOTE CIC17
+- Crear scripts de entrenamiento NearMiss/SMOTE BCCC17
+- Crear scripts de entrenamiento NearMiss/SMOTE CIC18
+- Lanzar scripts de entrenamiento RUS/SMOTE CIC17
