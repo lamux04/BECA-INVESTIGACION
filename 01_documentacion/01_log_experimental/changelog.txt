@@ -72,7 +72,7 @@
 23-03-2026
 - Solucionando errores scripts de entrenamiento
 
-24-03-2027
+24-03-2026
 - Crear scripts de entrenamiento RUS/SMOTE CIC17
 - Crear scripts de entrenamiento RUS/SMOTE BCCC17
 - Crear scripts de entrenamiento RUS/SMOTE CIC18
@@ -80,3 +80,7 @@
 - Crear scripts de entrenamiento NearMiss/SMOTE BCCC17
 - Crear scripts de entrenamiento NearMiss/SMOTE CIC18
 - Lanzar scripts de entrenamiento RUS/SMOTE CIC17
+
+25-03-2026
+- Analizar el tiempo que va a tardar el entrenamiento RUS/SMOTE CIC17
+- Reestructurar todo y cambiar excel

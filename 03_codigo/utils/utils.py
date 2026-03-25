@@ -237,26 +237,53 @@ def dividir_en_k_particiones_stratified(df, label_col="LABEL", k=5, random_state
     return particiones
 
 
-def undersample_clase_mayoritaria_rus(df, n_mayoritaria, label_col="LABEL", random_state=42):
-    
-    X = df.drop(columns=label_col)
+def undersample_clases_mayores(df, n_max, label_col="LABEL", random_state=42):
+    """
+    Aplica RandomUnderSampler a todas las clases que tengan más de n_max muestras.
+
+    Parameters
+    ----------
+    df : pandas.DataFrame
+        Dataset completo
+    n_max : int
+        Número máximo de muestras por clase
+    label_col : str
+        Nombre de la columna de etiquetas
+    random_state : int
+        Semilla para reproducibilidad
+
+    Returns
+    -------
+    df_res : pandas.DataFrame
+        Dataset balanceado
+    """
+
+    X = df.drop(columns=[label_col])
     y = df[label_col]
-    
-    # encontrar la clase mayoritaria
-    clase_mayoritaria = y.value_counts().idxmax()
-    
-    # diccionario que indica cuántas muestras queremos de esa clase
-    sampling_strategy = {clase_mayoritaria: n_mayoritaria}
-    
+
+    # Conteo de clases
+    class_counts = y.value_counts()
+
+    # Construir sampling_strategy SOLO para clases que superen n_max
+    sampling_strategy = {
+        clase: n_max
+        for clase, count in class_counts.items()
+        if count > n_max
+    }
+
+    # Si ninguna clase supera n_max, devolvemos el df tal cual
+    if len(sampling_strategy) == 0:
+        return df.copy()
+
     rus = RandomUnderSampler(
         sampling_strategy=sampling_strategy,
         random_state=random_state
     )
-    
+
     X_res, y_res = rus.fit_resample(X, y)
-    
+
     df_res = pd.concat([X_res, y_res], axis=1)
-    
+
     return df_res
 
 def aplicar_enn(df, label_col="LABEL", n_neighbors=3, kind_sel="all"):
@@ -519,12 +546,12 @@ class SimpleT5Wrapper:
         eval_df,
         source_max_token_len=512,
         target_max_token_len=128,
-        batch_size=8,
-        max_epochs=1,
+        batch_size=16,
+        max_epochs=10,
         outputdir="outputs",
         precision=32,
         use_gpu=True,
-        dataloader_num_workers=0
+        dataloader_num_workers=16
     ):
         if self.tokenizer is None or self.model is None:
             raise ValueError("Primero debes llamar a from_pretrained().")
@@ -588,7 +615,7 @@ class SimpleT5Wrapper:
             generation_max_length=target_max_token_len,
             dataloader_num_workers=dataloader_num_workers,
             fp16=fp16,
-            save_total_limit=2,
+            save_total_limit=10,
             load_best_model_at_end=True,
             metric_for_best_model="accuracy",
             greater_is_better=True,
