@@ -1,0 +1,109 @@
+/var/spool/slurmd/job99186/slurm_script: línea 25: nvidia-smi: no se encontró la orden
+/var/spool/slurmd/job99186/slurm_script: línea 28: nvidia-smi: no se encontró la orden
+[NbConvertApp] Converting notebook /home/inginf/u32902122/TFG/03_codigo/utils/prueba.ipynb to notebook
+[NbConvertApp] ERROR | Failed to run command:
+['/home/inginf/u32902122/.conda/envs/tfg/bin/python', '-Xfrozen_modules=off', '-m', 'ipykernel_launcher', '-f', '/tmp/tmp88aggtlx.json']
+    PATH='/apps/software/Anaconda3/2024.02-1:/apps/software/Anaconda3/2024.02-1/sbin:/apps/software/Anaconda3/2024.02-1/bin:/home/inginf/u32902122/.cargo/bin:/home/inginf/u32902122/.conda/envs/tfg/bin:/apps/software/Anaconda3/2024.02-1/condabin:/home/inginf/u32902122/.local/bin:/home/inginf/u32902122/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin'
+    with kwargs:
+{'stdin': -1, 'stdout': None, 'stderr': None, 'cwd': '/home/inginf/u32902122/TFG/03_codigo/utils', 'start_new_session': True}
+
+[NbConvertApp] ERROR | [Errno 2] No such file or directory: '/home/inginf/u32902122/.conda/envs/tfg/bin/python'
+Traceback (most recent call last):
+  File "/apps/software/Anaconda3/2024.02-1/lib/python3.11/site-packages/jupyter_client/manager.py", line 87, in wrapper
+    out = await method(self, *args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/apps/software/Anaconda3/2024.02-1/lib/python3.11/site-packages/jupyter_client/manager.py", line 439, in _async_start_kernel
+    await self._async_launch_kernel(kernel_cmd, **kw)
+  File "/apps/software/Anaconda3/2024.02-1/lib/python3.11/site-packages/jupyter_client/manager.py", line 354, in _async_launch_kernel
+    connection_info = await self.provisioner.launch_kernel(kernel_cmd, **kw)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/apps/software/Anaconda3/2024.02-1/lib/python3.11/site-packages/jupyter_client/provisioning/local_provisioner.py", line 210, in launch_kernel
+    self.process = launch_kernel(cmd, **scrubbed_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/apps/software/Anaconda3/2024.02-1/lib/python3.11/site-packages/jupyter_client/launcher.py", line 170, in launch_kernel
+    raise ex
+  File "/apps/software/Anaconda3/2024.02-1/lib/python3.11/site-packages/jupyter_client/launcher.py", line 155, in launch_kernel
+    proc = Popen(cmd, **kwargs)  # noqa
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/apps/software/Anaconda3/2024.02-1/lib/python3.11/subprocess.py", line 1026, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/apps/software/Anaconda3/2024.02-1/lib/python3.11/subprocess.py", line 1953, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: '/home/inginf/u32902122/.conda/envs/tfg/bin/python'
+Traceback (most recent call last):
+  File "/apps/software/Anaconda3/2024.02-1/bin/jupyter-nbconvert", line 11, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/apps/software/Anaconda3/2024.02-1/lib/python3.11/site-packages/jupyter_core/application.py", line 280, in launch_instance
+    super().launch_instance(argv=argv, **kwargs)
+  File "/apps/software/Anaconda3/2024.02-1/lib/python3.11/site-packages/traitlets/config/application.py", line 992, in launch_instance
+    app.start()
+  File "/apps/software/Anaconda3/2024.02-1/lib/python3.11/site-packages/nbconvert/nbconvertapp.py", line 412, in start
+    self.convert_notebooks()
+  File "/apps/software/Anaconda3/2024.02-1/lib/python3.11/site-packages/nbconvert/nbconvertapp.py", line 590, in convert_notebooks
+    self.convert_single_notebook(notebook_filename)
+  File "/apps/software/Anaconda3/2024.02-1/lib/python3.11/site-packages/nbconvert/nbconvertapp.py", line 556, in convert_single_notebook
+    output, resources = self.export_single_notebook(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/apps/software/Anaconda3/2024.02-1/lib/python3.11/site-packages/nbconvert/nbconvertapp.py", line 479, in export_single_notebook
+    output, resources = self.exporter.from_filename(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/apps/software/Anaconda3/2024.02-1/lib/python3.11/site-packages/nbconvert/exporters/exporter.py", line 203, in from_filename
+    return self.from_file(f, resources=resources, **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/apps/software/Anaconda3/2024.02-1/lib/python3.11/site-packages/nbconvert/exporters/exporter.py", line 222, in from_file
+    return self.from_notebook_node(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/apps/software/Anaconda3/2024.02-1/lib/python3.11/site-packages/nbconvert/exporters/notebook.py", line 36, in from_notebook_node
+    nb_copy, resources = super().from_notebook_node(nb, resources, **kw)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/apps/software/Anaconda3/2024.02-1/lib/python3.11/site-packages/nbconvert/exporters/exporter.py", line 156, in from_notebook_node
+    nb_copy, resources = self._preprocess(nb_copy, resources)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/apps/software/Anaconda3/2024.02-1/lib/python3.11/site-packages/nbconvert/exporters/exporter.py", line 354, in _preprocess
+    nbc, resc = preprocessor(nbc, resc)  # type:ignore[operator]
+                ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/apps/software/Anaconda3/2024.02-1/lib/python3.11/site-packages/nbconvert/preprocessors/base.py", line 48, in __call__
+    return self.preprocess(nb, resources)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/apps/software/Anaconda3/2024.02-1/lib/python3.11/site-packages/nbconvert/preprocessors/execute.py", line 96, in preprocess
+    with self.setup_kernel():
+  File "/apps/software/Anaconda3/2024.02-1/lib/python3.11/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/apps/software/Anaconda3/2024.02-1/lib/python3.11/site-packages/nbclient/client.py", line 596, in setup_kernel
+    self.start_new_kernel(**kwargs)
+  File "/apps/software/Anaconda3/2024.02-1/lib/python3.11/site-packages/jupyter_core/utils/__init__.py", line 173, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/apps/software/Anaconda3/2024.02-1/lib/python3.11/asyncio/base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/apps/software/Anaconda3/2024.02-1/lib/python3.11/site-packages/nbclient/client.py", line 546, in async_start_new_kernel
+    await ensure_async(self.km.start_kernel(extra_arguments=self.extra_arguments, **kwargs))
+  File "/apps/software/Anaconda3/2024.02-1/lib/python3.11/site-packages/jupyter_core/utils/__init__.py", line 189, in ensure_async
+    result = await obj
+             ^^^^^^^^^
+  File "/apps/software/Anaconda3/2024.02-1/lib/python3.11/site-packages/jupyter_client/manager.py", line 96, in wrapper
+    raise e
+  File "/apps/software/Anaconda3/2024.02-1/lib/python3.11/site-packages/jupyter_client/manager.py", line 87, in wrapper
+    out = await method(self, *args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/apps/software/Anaconda3/2024.02-1/lib/python3.11/site-packages/jupyter_client/manager.py", line 439, in _async_start_kernel
+    await self._async_launch_kernel(kernel_cmd, **kw)
+  File "/apps/software/Anaconda3/2024.02-1/lib/python3.11/site-packages/jupyter_client/manager.py", line 354, in _async_launch_kernel
+    connection_info = await self.provisioner.launch_kernel(kernel_cmd, **kw)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/apps/software/Anaconda3/2024.02-1/lib/python3.11/site-packages/jupyter_client/provisioning/local_provisioner.py", line 210, in launch_kernel
+    self.process = launch_kernel(cmd, **scrubbed_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/apps/software/Anaconda3/2024.02-1/lib/python3.11/site-packages/jupyter_client/launcher.py", line 170, in launch_kernel
+    raise ex
+  File "/apps/software/Anaconda3/2024.02-1/lib/python3.11/site-packages/jupyter_client/launcher.py", line 155, in launch_kernel
+    proc = Popen(cmd, **kwargs)  # noqa
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/apps/software/Anaconda3/2024.02-1/lib/python3.11/subprocess.py", line 1026, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/apps/software/Anaconda3/2024.02-1/lib/python3.11/subprocess.py", line 1953, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: '/home/inginf/u32902122/.conda/envs/tfg/bin/python'

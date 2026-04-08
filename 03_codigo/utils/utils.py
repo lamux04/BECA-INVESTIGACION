@@ -636,3 +636,44 @@ class SimpleT5Wrapper:
         self.tokenizer.save_pretrained(outputdir)
 
         return trainer
+
+    def predict(
+        self,
+        texts,
+        batch_size=16,
+        source_max_token_len=150,
+        target_max_token_len=3,
+    ):
+        if self.tokenizer is None or self.model is None:
+            raise ValueError("Primero debes llamar a from_pretrained().")
+
+        if isinstance(texts, str):
+            texts = [texts]
+
+        self.model.eval()
+        predictions = []
+
+        for i in range(0, len(texts), batch_size):
+            batch_texts = texts[i:i + batch_size]
+
+            inputs = self.tokenizer(
+                batch_texts,
+                return_tensors="pt",
+                truncation=True,
+                padding=True,
+                max_length=source_max_token_len
+            )
+            inputs = {k: v.to(self.device) for k, v in inputs.items()}
+
+            with torch.inference_mode():
+                outputs = self.model.generate(
+                    input_ids=inputs["input_ids"],
+                    attention_mask=inputs["attention_mask"],
+                    max_new_tokens=target_max_token_len,
+                    num_beams=1
+                )
+
+            preds = self.tokenizer.batch_decode(outputs, skip_special_tokens=True)
+            predictions.extend([p.strip() for p in preds])
+
+        return predictions

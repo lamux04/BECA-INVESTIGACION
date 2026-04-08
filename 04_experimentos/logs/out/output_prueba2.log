@@ -1,0 +1,101 @@
+/var/spool/slurmd/job99089/slurm_script: línea 25: nvidia-smi: no se encontró la orden
+/var/spool/slurmd/job99089/slurm_script: línea 28: nvidia-smi: no se encontró la orden
+[NbConvertApp] Converting notebook /home/inginf/u32902122/TFG/03_codigo/utils/prueba.ipynb to notebook
+[NbConvertApp] ERROR | Error occurred while starting new kernel client for kernel 9fb130bb-30df-404d-83bb-816b58c8bf83: Kernel didn't respond in 60 seconds
+Traceback (most recent call last):
+  File "/home/inginf/u32902122/.conda/envs/tfgClean/lib/python3.11/runpy.py", line 198, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/inginf/u32902122/.conda/envs/tfgClean/lib/python3.11/runpy.py", line 88, in _run_code
+    exec(code, run_globals)
+  File "/home/inginf/u32902122/.conda/envs/tfgClean/lib/python3.11/site-packages/ipykernel_launcher.py", line 16, in <module>
+    from ipykernel import kernelapp as app
+  File "/home/inginf/u32902122/.conda/envs/tfgClean/lib/python3.11/site-packages/ipykernel/__init__.py", line 7, in <module>
+    from .connect import *  # noqa: F403
+    ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/inginf/u32902122/.conda/envs/tfgClean/lib/python3.11/site-packages/ipykernel/connect.py", line 12, in <module>
+    import jupyter_client
+  File "/home/inginf/u32902122/.conda/envs/tfgClean/lib/python3.11/site-packages/jupyter_client/__init__.py", line 4, in <module>
+    from .asynchronous import AsyncKernelClient
+  File "/home/inginf/u32902122/.conda/envs/tfgClean/lib/python3.11/site-packages/jupyter_client/asynchronous/__init__.py", line 1, in <module>
+    from .client import AsyncKernelClient  # noqa
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/inginf/u32902122/.conda/envs/tfgClean/lib/python3.11/site-packages/jupyter_client/asynchronous/client.py", line 12, in <module>
+    from ..channels import AsyncZMQSocketChannel, HBChannel
+  File "/home/inginf/u32902122/.conda/envs/tfgClean/lib/python3.11/site-packages/jupyter_client/channels.py", line 17, in <module>
+    from .session import Session
+  File "/home/inginf/u32902122/.conda/envs/tfgClean/lib/python3.11/site-packages/jupyter_client/session.py", line 56, in <module>
+    from .jsonutil import extract_dates, json_clean, json_default, squash_dates
+  File "/home/inginf/u32902122/.conda/envs/tfgClean/lib/python3.11/site-packages/jupyter_client/jsonutil.py", line 15, in <module>
+    from dateutil.parser import isoparse as _dateutil_parse
+  File "/home/inginf/u32902122/.conda/envs/tfgClean/lib/python3.11/site-packages/dateutil/parser/__init__.py", line 2, in <module>
+    from ._parser import parse, parser, parserinfo, ParserError
+  File "/home/inginf/u32902122/.conda/envs/tfgClean/lib/python3.11/site-packages/dateutil/parser/_parser.py", line 42, in <module>
+    import six
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1138, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 1078, in _find_spec
+  File "<frozen importlib._bootstrap_external>", line 1507, in find_spec
+  File "<frozen importlib._bootstrap_external>", line 1479, in _get_spec
+  File "<frozen importlib._bootstrap_external>", line 1648, in find_spec
+  File "<frozen importlib._bootstrap_external>", line 161, in _path_isfile
+  File "<frozen importlib._bootstrap_external>", line 153, in _path_is_mode_type
+  File "<frozen importlib._bootstrap_external>", line 147, in _path_stat
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/apps/software/Anaconda3/2024.02-1/bin/jupyter-nbconvert", line 11, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/apps/software/Anaconda3/2024.02-1/lib/python3.11/site-packages/jupyter_core/application.py", line 280, in launch_instance
+    super().launch_instance(argv=argv, **kwargs)
+  File "/apps/software/Anaconda3/2024.02-1/lib/python3.11/site-packages/traitlets/config/application.py", line 992, in launch_instance
+    app.start()
+  File "/apps/software/Anaconda3/2024.02-1/lib/python3.11/site-packages/nbconvert/nbconvertapp.py", line 412, in start
+    self.convert_notebooks()
+  File "/apps/software/Anaconda3/2024.02-1/lib/python3.11/site-packages/nbconvert/nbconvertapp.py", line 590, in convert_notebooks
+    self.convert_single_notebook(notebook_filename)
+  File "/apps/software/Anaconda3/2024.02-1/lib/python3.11/site-packages/nbconvert/nbconvertapp.py", line 556, in convert_single_notebook
+    output, resources = self.export_single_notebook(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/apps/software/Anaconda3/2024.02-1/lib/python3.11/site-packages/nbconvert/nbconvertapp.py", line 479, in export_single_notebook
+    output, resources = self.exporter.from_filename(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/apps/software/Anaconda3/2024.02-1/lib/python3.11/site-packages/nbconvert/exporters/exporter.py", line 203, in from_filename
+    return self.from_file(f, resources=resources, **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/apps/software/Anaconda3/2024.02-1/lib/python3.11/site-packages/nbconvert/exporters/exporter.py", line 222, in from_file
+    return self.from_notebook_node(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/apps/software/Anaconda3/2024.02-1/lib/python3.11/site-packages/nbconvert/exporters/notebook.py", line 36, in from_notebook_node
+    nb_copy, resources = super().from_notebook_node(nb, resources, **kw)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/apps/software/Anaconda3/2024.02-1/lib/python3.11/site-packages/nbconvert/exporters/exporter.py", line 156, in from_notebook_node
+    nb_copy, resources = self._preprocess(nb_copy, resources)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/apps/software/Anaconda3/2024.02-1/lib/python3.11/site-packages/nbconvert/exporters/exporter.py", line 354, in _preprocess
+    nbc, resc = preprocessor(nbc, resc)  # type:ignore[operator]
+                ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/apps/software/Anaconda3/2024.02-1/lib/python3.11/site-packages/nbconvert/preprocessors/base.py", line 48, in __call__
+    return self.preprocess(nb, resources)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/apps/software/Anaconda3/2024.02-1/lib/python3.11/site-packages/nbconvert/preprocessors/execute.py", line 96, in preprocess
+    with self.setup_kernel():
+  File "/apps/software/Anaconda3/2024.02-1/lib/python3.11/contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "/apps/software/Anaconda3/2024.02-1/lib/python3.11/site-packages/nbclient/client.py", line 599, in setup_kernel
+    self.start_new_kernel_client()
+  File "/apps/software/Anaconda3/2024.02-1/lib/python3.11/site-packages/jupyter_core/utils/__init__.py", line 173, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/apps/software/Anaconda3/2024.02-1/lib/python3.11/asyncio/base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/apps/software/Anaconda3/2024.02-1/lib/python3.11/site-packages/nbclient/client.py", line 562, in async_start_new_kernel_client
+    await ensure_async(self.kc.wait_for_ready(timeout=self.startup_timeout))
+  File "/apps/software/Anaconda3/2024.02-1/lib/python3.11/site-packages/jupyter_core/utils/__init__.py", line 189, in ensure_async
+    result = await obj
+             ^^^^^^^^^
+  File "/apps/software/Anaconda3/2024.02-1/lib/python3.11/site-packages/jupyter_client/client.py", line 207, in _async_wait_for_ready
+    raise RuntimeError("Kernel didn't respond in %d seconds" % timeout)
+RuntimeError: Kernel didn't respond in 60 seconds

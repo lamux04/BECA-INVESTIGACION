@@ -84,3 +84,19 @@
 25-03-2026
 - Analizar el tiempo que va a tardar el entrenamiento RUS/SMOTE CIC17
 - Reestructurar todo y cambiar excel
+
+26-03-2026
+- Cambios en los scripts para adaptarlo a lo nuevo
+- Fallos supercomputador
+
+27-03-2026
+- Ejecutar todos los scripts cambiados
+- Comenzar entrenamiento RUS/SMOTE CIC17
+
+28-03-2026
+- ENN CIC18
+- Creando script de validación para un único epoch y probando que funcione
+- Crear scripts para RUS/SMOTE + ENN CIC17
+- Crear scripts para RUS/SMOTE + ENN CIC18
+- Crear scripts para NearMiss/SMOTE + ENN CIC17
+- Crear scripts para NearMiss/SMOTE + ENN CIC18
