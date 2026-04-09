@@ -100,3 +100,14 @@
 - Crear scripts para RUS/SMOTE + ENN CIC18
 - Crear scripts para NearMiss/SMOTE + ENN CIC17
 - Crear scripts para NearMiss/SMOTE + ENN CIC18
+
+07-04-2026
+- Script de validación creado
+
+08-04-2026
+- Creamos script de validación CIC17
+- Creamos script de validación CIC18
+- Empezamos ejecución scripts de validación CIC17
+- Empezamos ejecución scripts de validación CIC18
+- Encontramos y solucionamos fallo entrenamiento NearMiss/SMOTE CIC17
+- Encontramos y solucionamos fallo entrenamiento NearMiss/SMOTE CIC18
