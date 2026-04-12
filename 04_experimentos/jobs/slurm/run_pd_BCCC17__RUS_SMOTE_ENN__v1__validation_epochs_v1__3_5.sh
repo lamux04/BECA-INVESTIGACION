@@ -1,15 +1,15 @@
 #!/bin/bash
-#SBATCH --job-name=BCCC17__cleanning__v1_division_80_20_v1
+#SBATCH --job-name=pd_BCCC17__RUS_SMOTE_ENN__v1__validation_epochs_v1__3_5
 #SBATCH --cpus-per-task=64
 #SBATCH --partition=normal
 #SBATCH --time=1-00:00:00
 #SBATCH --mem=200GB
-#SBATCH --output=/home/inginf/u32902122/TFG/04_experimentos/logs/out/output_BCCC17__cleanning__v1_division_80_20_v1.log
+#SBATCH --output=/home/inginf/u32902122/TFG/04_experimentos/logs/out/output_pd_BCCC17__RUS_SMOTE_ENN__v1__validation_epochs_v1__3_5.log
 #SBATCH --mail-user=javier.labradormunoz@alum.uca.es
 #SBATCH --mail-type=BEGIN,END,FAIL,TIME_LIMIT_80
 
-NOMBRE_SCRIPT="BCCC17__cleanning__v1_division_80_20_v1"
-PATH_SCRIPT=03_codigo/BCCC17/01_preprocessing/$NOMBRE_SCRIPT
+NOMBRE_SCRIPT="pd_BCCC17__RUS_SMOTE_ENN__v1__validation_epochs_v1__3_5"
+PATH_SCRIPT=03_codigo/BCCC17/05_validation_epochs/$NOMBRE_SCRIPT
 
 BASE=/home/inginf/u32902122/TFG/$PATH_SCRIPT
 NOTEBOOK=$BASE.ipynb

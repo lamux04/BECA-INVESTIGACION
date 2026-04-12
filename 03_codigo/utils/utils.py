@@ -677,3 +677,108 @@ class SimpleT5Wrapper:
             predictions.extend([p.strip() for p in preds])
 
         return predictions
+    
+
+#######################################################################################
+########################## NUEVAS ANÁLISIS ESTADÍSTICO ################################
+#######################################################################################
+
+def limpiar_infinitos_y_vacios(df):
+    """
+    Convierte infinitos y strings vacíos en NaN.
+    No elimina filas todavía.
+    """
+    df = df.copy()
+    df = df.replace([np.inf, -np.inf], np.nan)
+    df = df.replace(r'^\s*$', np.nan, regex=True)
+    return df
+    
+def separar_filas_con_y_sin_nulos(df):
+    """
+    Separa el dataset en:
+    - filas sin nulos
+    - filas con al menos un nulo
+    """
+    mask_null = df.isnull().any(axis=1)
+    df_sin_nulos = df.loc[~mask_null].copy()
+    df_con_nulos = df.loc[mask_null].copy()
+    return df_sin_nulos, df_con_nulos
+
+def imputar_o_eliminar_nulos_por_clase(
+    df_sin_nulos,
+    df_con_nulos,
+    label_col="LABEL",
+    min_class_impute=50
+):
+    """
+    Si una fila con nulos pertenece a una clase con menos de min_class_impute muestras,
+    intenta imputar por mediana en columnas numéricas.
+    Si no, elimina la fila.
+    """
+    df_sin_nulos = df_sin_nulos.copy()
+
+    class_counts = df_sin_nulos[label_col].value_counts().to_dict()
+
+    numeric_cols = [
+        c for c in df_sin_nulos.select_dtypes(include=[np.number]).columns
+        if c != label_col
+    ]
+
+    filas_recuperadas = []
+    imputadas = 0
+    eliminadas = 0
+
+    for _, row in df_con_nulos.iterrows():
+        label = row[label_col]
+        class_size = class_counts.get(label, 0)
+
+        if class_size < min_class_impute:
+            row_copy = row.copy()
+            subset_clase = df_sin_nulos[df_sin_nulos[label_col] == label]
+
+            for col in numeric_cols:
+                if pd.isna(row_copy[col]):
+                    row_copy[col] = subset_clase[col].median()
+
+            if row_copy.isnull().any():
+                eliminadas += 1
+            else:
+                filas_recuperadas.append(row_copy)
+                imputadas += 1
+        else:
+            eliminadas += 1
+
+    if filas_recuperadas:
+        df_sin_nulos = pd.concat(
+            [df_sin_nulos, pd.DataFrame(filas_recuperadas)],
+            ignore_index=True
+        )
+
+    return df_sin_nulos, imputadas, eliminadas
+
+def codificar_columnas_categoricas_one_hot(df, label_col="LABEL"):
+    """
+    Codifica columnas categóricas con One-Hot Encoding.
+    """
+    df = df.copy()
+
+    categorical_cols = [
+        col for col in df.columns
+        if col != label_col and (
+            pd.api.types.is_object_dtype(df[col]) or
+            pd.api.types.is_string_dtype(df[col]) or
+            pd.api.types.is_categorical_dtype(df[col]) or
+            pd.api.types.is_bool_dtype(df[col])
+        )
+    ]
+
+    if not categorical_cols:
+        return df, []
+
+    df_encoded = pd.get_dummies(
+        df,
+        columns=categorical_cols,
+        drop_first=False
+    )
+
+    return df_encoded, categorical_cols
