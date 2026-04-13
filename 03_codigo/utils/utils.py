@@ -782,3 +782,14 @@ def codificar_columnas_categoricas_one_hot(df, label_col="LABEL"):
     )
 
     return df_encoded, categorical_cols
+
+def resumen_clases(df, label_col="LABEL"):
+    conteos = df[label_col].value_counts(dropna=False).sort_index()
+    proporciones = df[label_col].value_counts(dropna=False, normalize=True).sort_index() * 100
+
+    resumen = pd.DataFrame({
+        "count": conteos,
+        "percentage": proporciones.round(4)
+    })
+
+    return resumen
