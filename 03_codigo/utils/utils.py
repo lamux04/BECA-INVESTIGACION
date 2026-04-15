@@ -793,3 +793,64 @@ def resumen_clases(df, label_col="LABEL"):
     })
 
     return resumen
+
+def codificar_columnas_categoricas_one_hot_seguro(
+    df,
+    label_col="LABEL",
+    max_unique_for_one_hot=50
+):
+    """
+    - Intenta convertir a numérico las columnas object que realmente sean números.
+    - Solo aplica One-Hot a categóricas con cardinalidad baja.
+    - Devuelve también las columnas omitidas por alta cardinalidad.
+    """
+    df = df.copy()
+
+    # 1. Intentar convertir columnas object a numérico si procede
+    object_cols = [
+        col for col in df.columns
+        if col != label_col and (
+            pd.api.types.is_object_dtype(df[col]) or
+            pd.api.types.is_string_dtype(df[col])
+        )
+    ]
+
+    converted_to_numeric = []
+    for col in object_cols:
+        converted = pd.to_numeric(df[col], errors="coerce")
+        # Si casi todos los valores se pueden convertir, la tratamos como numérica
+        if converted.notna().mean() > 0.99:
+            df[col] = converted
+            converted_to_numeric.append(col)
+
+    # 2. Recalcular categóricas reales
+    categorical_cols = [
+        col for col in df.columns
+        if col != label_col and (
+            pd.api.types.is_object_dtype(df[col]) or
+            pd.api.types.is_string_dtype(df[col]) or
+            pd.api.types.is_categorical_dtype(df[col]) or
+            pd.api.types.is_bool_dtype(df[col])
+        )
+    ]
+
+    # 3. Separar según cardinalidad
+    cols_for_one_hot = []
+    cols_ignored_high_cardinality = []
+
+    for col in categorical_cols:
+        n_unique = df[col].nunique(dropna=False)
+        if n_unique <= max_unique_for_one_hot:
+            cols_for_one_hot.append(col)
+        else:
+            cols_ignored_high_cardinality.append(col)
+
+    # 4. Aplicar one-hot solo a las seguras
+    if cols_for_one_hot:
+        df = pd.get_dummies(
+            df,
+            columns=cols_for_one_hot,
+            drop_first=False
+        )
+
+    return df, cols_for_one_hot, cols_ignored_high_cardinality, converted_to_numeric
