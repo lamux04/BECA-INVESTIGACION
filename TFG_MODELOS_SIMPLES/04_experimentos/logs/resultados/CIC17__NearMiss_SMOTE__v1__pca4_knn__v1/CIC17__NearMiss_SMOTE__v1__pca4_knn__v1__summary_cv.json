@@ -1,0 +1,43 @@
+{
+    "experimento": "CIC17__NearMiss_SMOTE__v1__pca4_knn__v1",
+    "dataset_train": "/home/javier/TFG_MODELOS_SIMPLES/02_datasets/processed/CIC17__NearMiss_SMOTE__v1/CIC17__NearMiss_SMOTE__v1__train.csv",
+    "shape_train": {
+        "rows": 150000,
+        "cols": 48
+    },
+    "parametros": {
+        "label_col": "LABEL",
+        "n_splits": 5,
+        "shuffle": true,
+        "random_state": 42,
+        "n_neighbors": 5,
+        "weights": "distance",
+        "metric": "minkowski",
+        "p": 2,
+        "n_components_pca": 4
+    },
+    "metricas_media": {
+        "accuracy": 0.9668133333333333,
+        "precision_weighted": 0.9667126696551904,
+        "recall_weighted": 0.9668133333333333,
+        "f1_weighted": 0.96671272501583,
+        "precision_macro": 0.9667126696551904,
+        "recall_macro": 0.9668133333333333,
+        "f1_macro": 0.9667127250158302,
+        "mcc": 0.9644509310872784,
+        "fit_time": 0.19360589981079102,
+        "score_time": 0.1014786720275879
+    },
+    "metricas_std": {
+        "accuracy": 0.0008601033529627546,
+        "precision_weighted": 0.0008444868898686481,
+        "recall_weighted": 0.0008601033529627546,
+        "f1_weighted": 0.0008580863399211419,
+        "precision_macro": 0.000844486889868711,
+        "recall_macro": 0.0008601033529627234,
+        "f1_macro": 0.0008580863399212338,
+        "mcc": 0.000920438000841189,
+        "fit_time": 0.001471100507352034,
+        "score_time": 0.001084493217756302
+    }
+}

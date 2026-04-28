@@ -1,0 +1,26 @@
+{
+    "experimento": "CIC17__split__v1__pca4_logreg__v1",
+    "dataset_test": "/home/javier/TFG_MODELOS_SIMPLES/02_datasets/processed/CIC17__split__v1/CIC17__split__v1__test.csv",
+    "shape_test": {
+        "rows": 504160,
+        "cols": 48
+    },
+    "parametros": {
+        "label_col": "LABEL",
+        "n_splits": 5,
+        "shuffle": true,
+        "random_state": 42,
+        "n_components_pca": 4,
+        "modelo": "LogisticRegression"
+    },
+    "metricas_test": {
+        "accuracy": 0.4813987622976833,
+        "precision_weighted": 0.9154786068743431,
+        "recall_weighted": 0.4813987622976833,
+        "f1_weighted": 0.6085319964952149,
+        "precision_macro": 0.21786260997931864,
+        "recall_macro": 0.6282187471745109,
+        "f1_macro": 0.21035650444284162,
+        "mcc": 0.33547109814217385
+    }
+}

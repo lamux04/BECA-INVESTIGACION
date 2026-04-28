@@ -1,4 +1,5 @@
 #!/bin/bash
+#!/bin/bash
 #SBATCH --job-name=pd_CIC18__RUS_SMOTE__v1__test_final_v1__1_5
 #SBATCH --cpus-per-task=64
 #SBATCH --partition=normal

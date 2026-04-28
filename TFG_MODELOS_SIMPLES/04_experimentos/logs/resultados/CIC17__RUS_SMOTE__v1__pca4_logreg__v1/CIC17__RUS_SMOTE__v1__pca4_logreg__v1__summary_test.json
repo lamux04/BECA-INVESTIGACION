@@ -1,0 +1,26 @@
+{
+    "experimento": "CIC17__RUS_SMOTE__v1__pca4_logreg__v1",
+    "dataset_test": "/home/javier/TFG_MODELOS_SIMPLES/02_datasets/processed/CIC17__RUS_SMOTE__v1/CIC17__RUS_SMOTE__v1__test.csv",
+    "shape_test": {
+        "rows": 504160,
+        "cols": 48
+    },
+    "parametros": {
+        "label_col": "LABEL",
+        "n_splits": 5,
+        "shuffle": true,
+        "random_state": 42,
+        "n_components_pca": 4,
+        "modelo": "LogisticRegression"
+    },
+    "metricas_test": {
+        "accuracy": 0.4925003966994605,
+        "precision_weighted": 0.9312207311702023,
+        "recall_weighted": 0.4925003966994605,
+        "f1_weighted": 0.6051613859593792,
+        "precision_macro": 0.22026410507826416,
+        "recall_macro": 0.6434107803868053,
+        "f1_macro": 0.2284180094176311,
+        "mcc": 0.3832321905407542
+    }
+}

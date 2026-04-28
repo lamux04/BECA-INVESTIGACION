@@ -1,0 +1,44 @@
+{
+    "experimento": "CIC17__RUS_SMOTE__v1__pca4_svm__v1",
+    "dataset": "/home/javier/TFG_MODELOS_SIMPLES/02_datasets/processed/CIC17__RUS_SMOTE__v1/CIC17__RUS_SMOTE__v1__train.csv",
+    "shape_dataset": {
+        "rows": 150000,
+        "cols": 48
+    },
+    "parametros": {
+        "label_col": "LABEL",
+        "n_splits": 5,
+        "shuffle": true,
+        "random_state": 42,
+        "n_components_pca": 4,
+        "modelo": "SVM",
+        "C": 1.0,
+        "kernel": "rbf",
+        "gamma": "scale",
+        "dataset_balanceado": "CIC17__RUS_SMOTE__v1"
+    },
+    "metricas_media": {
+        "accuracy": 0.8711333333333334,
+        "precision_weighted": 0.8870635694451755,
+        "recall_weighted": 0.8711333333333334,
+        "f1_weighted": 0.8519620848587458,
+        "precision_macro": 0.8870635694451755,
+        "recall_macro": 0.8711333333333334,
+        "f1_macro": 0.8519620848587458,
+        "mcc": 0.8651602089285632,
+        "fit_time": 97.75134787559509,
+        "score_time": 58.239210271835326
+    },
+    "metricas_std": {
+        "accuracy": 0.001441449887362603,
+        "precision_weighted": 0.003621612544949173,
+        "recall_weighted": 0.001441449887362603,
+        "f1_weighted": 0.0023006236097230007,
+        "precision_macro": 0.0036216125449491936,
+        "recall_macro": 0.0014414498873625966,
+        "f1_macro": 0.002300623609722913,
+        "mcc": 0.0014977769132683248,
+        "fit_time": 16.729715078826228,
+        "score_time": 4.361882525958992
+    }
+}

@@ -18,6 +18,7 @@ from transformers import (
     Seq2SeqTrainer
 )
 import torch
+import re
 
 
 
@@ -854,3 +855,19 @@ def codificar_columnas_categoricas_one_hot_seguro(
         )
 
     return df, cols_for_one_hot, cols_ignored_high_cardinality, converted_to_numeric
+
+
+
+def limpiar_prediccion(pred, valid_labels):
+    pred = str(pred).strip()
+
+    if pred in valid_labels:
+        return pred
+
+    encontrados = re.findall(r"\d+", pred)
+
+    for e in encontrados:
+        if e in valid_labels:
+            return e
+
+    return "INVALID"

@@ -1,0 +1,40 @@
+{
+    "experimento": "BCCC17__RUS_SMOTE__v1__pca4_logreg__v1",
+    "dataset": "/home/javier/TFG_MODELOS_SIMPLES/02_datasets/processed/BCCC17__RUS_SMOTE__v1/BCCC17__RUS_SMOTE__v1__train.csv",
+    "shape_dataset": {
+        "rows": 140000,
+        "cols": 64
+    },
+    "parametros": {
+        "label_col": "LABEL",
+        "n_splits": 5,
+        "shuffle": true,
+        "random_state": 42,
+        "n_components_pca": 4,
+        "modelo": "LogisticRegression"
+    },
+    "metricas_media": {
+        "accuracy": 0.5140571428571429,
+        "precision_weighted": 0.500307280056694,
+        "recall_weighted": 0.5140571428571429,
+        "f1_weighted": 0.47383024957162945,
+        "precision_macro": 0.5003072800566939,
+        "recall_macro": 0.5140571428571429,
+        "f1_macro": 0.4738302495716294,
+        "mcc": 0.48403342617123607,
+        "fit_time": 7.343158626556397,
+        "score_time": 0.12315483093261718
+    },
+    "metricas_std": {
+        "accuracy": 0.009288687710745541,
+        "precision_weighted": 0.02150583423573692,
+        "recall_weighted": 0.009288687710745541,
+        "f1_weighted": 0.01634770460131252,
+        "precision_macro": 0.02150583423573684,
+        "recall_macro": 0.009288687710745541,
+        "f1_macro": 0.016347704601312546,
+        "mcc": 0.009249086569202087,
+        "fit_time": 3.3279954713386344,
+        "score_time": 0.10435991704103313
+    }
+}
