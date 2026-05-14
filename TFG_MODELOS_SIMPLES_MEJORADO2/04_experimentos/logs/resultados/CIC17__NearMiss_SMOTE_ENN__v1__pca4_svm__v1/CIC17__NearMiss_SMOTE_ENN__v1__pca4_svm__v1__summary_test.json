@@ -1,0 +1,30 @@
+{
+    "experimento": "CIC17__NearMiss_SMOTE_ENN__v1__pca4_svm__v1",
+    "dataset_test": "/home/javier/TFG_MODELOS_SIMPLES/02_datasets/processed/CIC17__NearMiss_SMOTE_ENN__v1/CIC17__NearMiss_SMOTE_ENN__v1__test.csv",
+    "shape_test": {
+        "rows": 504160,
+        "cols": 48
+    },
+    "parametros": {
+        "label_col": "LABEL",
+        "n_splits": 5,
+        "shuffle": true,
+        "random_state": 42,
+        "n_components_pca": 4,
+        "modelo": "SVM",
+        "C": 1.0,
+        "kernel": "rbf",
+        "gamma": "scale",
+        "dataset_balanceado": "CIC17__NearMiss_SMOTE_ENN__v1"
+    },
+    "metricas_test": {
+        "accuracy": 0.1727249285940971,
+        "precision_weighted": 0.8494753009351074,
+        "recall_weighted": 0.1727249285940971,
+        "f1_weighted": 0.21185012730119937,
+        "precision_macro": 0.234764212680699,
+        "recall_macro": 0.7838109922891815,
+        "f1_macro": 0.21096800026782037,
+        "mcc": 0.2162630698788792
+    }
+}

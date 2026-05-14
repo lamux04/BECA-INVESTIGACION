@@ -1,0 +1,35 @@
+{
+    "experimento": "CIC17__RUS_SMOTE__v1__pca4_mlp__v1",
+    "dataset_test": "/home/javier/TFG_MODELOS_SIMPLES/02_datasets/processed/CIC17__RUS_SMOTE__v1/CIC17__RUS_SMOTE__v1__test.csv",
+    "shape_test": {
+        "rows": 504160,
+        "cols": 48
+    },
+    "parametros": {
+        "label_col": "LABEL",
+        "n_splits": 5,
+        "shuffle": true,
+        "random_state": 42,
+        "n_components_pca": 4,
+        "modelo": "MLPClassifier",
+        "hidden_layer_sizes": [
+            64,
+            32
+        ],
+        "activation": "relu",
+        "solver": "adam",
+        "max_iter": 200,
+        "dataset_balanceado": "CIC17__RUS_SMOTE__v1"
+    },
+    "metricas_test": {
+        "accuracy": 0.8328645668041892,
+        "precision_weighted": 0.9532893902258925,
+        "recall_weighted": 0.8328645668041892,
+        "f1_weighted": 0.8792604900311736,
+        "precision_macro": 0.3294083196277208,
+        "recall_macro": 0.8751849852787702,
+        "f1_macro": 0.39781328658211895,
+        "mcc": 0.6644531491082387,
+        "roc_auc": 0.988177850954304
+    }
+}

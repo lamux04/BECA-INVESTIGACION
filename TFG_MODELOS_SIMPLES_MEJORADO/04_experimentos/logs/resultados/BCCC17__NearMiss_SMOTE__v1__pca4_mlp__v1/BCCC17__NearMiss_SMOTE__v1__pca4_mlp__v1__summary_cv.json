@@ -1,0 +1,50 @@
+{
+    "experimento": "BCCC17__NearMiss_SMOTE__v1__pca4_mlp__v1",
+    "dataset": "/home/javier/TFG_MODELOS_SIMPLES/02_datasets/processed/BCCC17__NearMiss_SMOTE__v1/BCCC17__NearMiss_SMOTE__v1__train.csv",
+    "shape_dataset": {
+        "rows": 140000,
+        "cols": 64
+    },
+    "parametros": {
+        "label_col": "LABEL",
+        "n_splits": 5,
+        "shuffle": true,
+        "random_state": 42,
+        "n_components_pca": 4,
+        "modelo": "MLPClassifier",
+        "hidden_layer_sizes": [
+            64,
+            32
+        ],
+        "activation": "relu",
+        "solver": "adam",
+        "max_iter": 200,
+        "dataset_balanceado": "BCCC17__NearMiss_SMOTE__v1"
+    },
+    "metricas_media": {
+        "accuracy": 0.8120785714285714,
+        "precision_weighted": 0.86740955802403,
+        "recall_weighted": 0.8120785714285714,
+        "f1_weighted": 0.7982773825235988,
+        "precision_macro": 0.8674095580240297,
+        "recall_macro": 0.8120785714285713,
+        "f1_macro": 0.7982773825235988,
+        "mcc": 0.8040133362362699,
+        "roc_auc": 0.9837247925824176,
+        "fit_time": 5.763011503219604,
+        "score_time": 0.08749446868896485
+    },
+    "metricas_std": {
+        "accuracy": 0.0017024142520885462,
+        "precision_weighted": 0.014507030718501075,
+        "recall_weighted": 0.0017024142520885462,
+        "f1_weighted": 0.008137952840831632,
+        "precision_macro": 0.014507030718501152,
+        "recall_macro": 0.0017024142520886017,
+        "f1_macro": 0.008137952840831629,
+        "mcc": 0.004246530996917304,
+        "roc_auc": 0.0017237706915568553,
+        "fit_time": 1.283472337340839,
+        "score_time": 0.0012156107952482442
+    }
+}

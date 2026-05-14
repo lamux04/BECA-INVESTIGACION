@@ -1,0 +1,44 @@
+{
+    "experimento": "BCCC17__NearMiss_SMOTE_ENN__v1__pca4_svm__v1",
+    "dataset": "/home/javier/TFG_MODELOS_SIMPLES/02_datasets/processed/BCCC17__NearMiss_SMOTE_ENN__v1/BCCC17__NearMiss_SMOTE_ENN__v1__train.csv",
+    "shape_dataset": {
+        "rows": 130562,
+        "cols": 64
+    },
+    "parametros": {
+        "label_col": "LABEL",
+        "n_splits": 5,
+        "shuffle": true,
+        "random_state": 42,
+        "n_components_pca": 4,
+        "modelo": "SVM",
+        "C": 1.0,
+        "kernel": "rbf",
+        "gamma": "scale",
+        "dataset_balanceado": "BCCC17__NearMiss_SMOTE_ENN__v1"
+    },
+    "metricas_media": {
+        "accuracy": 0.810274042929842,
+        "precision_weighted": 0.8386279813573339,
+        "recall_weighted": 0.810274042929842,
+        "f1_weighted": 0.8057023780573482,
+        "precision_macro": 0.8286873498965175,
+        "recall_macro": 0.8029927069411078,
+        "f1_macro": 0.7965728323199215,
+        "mcc": 0.7994730484642012,
+        "fit_time": 53.06890897750854,
+        "score_time": 52.91770329475403
+    },
+    "metricas_std": {
+        "accuracy": 0.001527861283496183,
+        "precision_weighted": 0.000987009584550916,
+        "recall_weighted": 0.001527861283496183,
+        "f1_weighted": 0.0014759842094248712,
+        "precision_macro": 0.0009019706470234245,
+        "recall_macro": 0.001523636487299293,
+        "f1_macro": 0.0013713784174658843,
+        "mcc": 0.0016121000909795707,
+        "fit_time": 5.912517994576754,
+        "score_time": 4.139653851946472
+    }
+}

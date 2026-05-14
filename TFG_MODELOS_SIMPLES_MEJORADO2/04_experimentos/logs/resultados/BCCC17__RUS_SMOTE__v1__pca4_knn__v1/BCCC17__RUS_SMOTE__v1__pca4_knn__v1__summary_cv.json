@@ -1,0 +1,45 @@
+{
+    "experimento": "BCCC17__RUS_SMOTE__v1__pca4_knn__v1",
+    "dataset_train": "/home/javier/TFG_MODELOS_SIMPLES/02_datasets/processed/BCCC17__RUS_SMOTE__v1/BCCC17__RUS_SMOTE__v1__train.csv",
+    "shape_train": {
+        "rows": 140000,
+        "cols": 64
+    },
+    "parametros": {
+        "label_col": "LABEL",
+        "n_splits": 5,
+        "shuffle": true,
+        "random_state": 42,
+        "n_neighbors": 5,
+        "weights": "distance",
+        "metric": "minkowski",
+        "p": 2,
+        "n_components_pca": 4
+    },
+    "metricas_media": {
+        "accuracy": 0.9681071428571428,
+        "precision_weighted": 0.9680725153404947,
+        "recall_weighted": 0.9681071428571428,
+        "f1_weighted": 0.96805738041663,
+        "precision_macro": 0.9680725153404947,
+        "recall_macro": 0.9681071428571428,
+        "f1_macro": 0.96805738041663,
+        "mcc": 0.9656587458557067,
+        "roc_auc": 0.9948453583791208,
+        "fit_time": 0.1430534839630127,
+        "score_time": 0.17681899070739746
+    },
+    "metricas_std": {
+        "accuracy": 0.0008383353281646695,
+        "precision_weighted": 0.0008158241144590513,
+        "recall_weighted": 0.0008383353281646695,
+        "f1_weighted": 0.0008333002262655742,
+        "precision_macro": 0.0008158241144590824,
+        "recall_macro": 0.0008383353281646848,
+        "f1_macro": 0.0008333002262655631,
+        "mcc": 0.0009018041114958773,
+        "roc_auc": 0.0001224327723938436,
+        "fit_time": 0.00912325754109548,
+        "score_time": 0.004359137853479348
+    }
+}

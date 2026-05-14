@@ -1,0 +1,43 @@
+{
+    "experimento": "CIC17__RUS_SMOTE_ENN__v1__pca4_knn__v1",
+    "dataset": "/home/javier/TFG_MODELOS_SIMPLES/02_datasets/processed/CIC17__RUS_SMOTE_ENN__v1",
+    "shape_dataset": {
+        "rows": 139345,
+        "cols": 48
+    },
+    "parametros": {
+        "label_col": "LABEL",
+        "n_splits": 5,
+        "shuffle": true,
+        "random_state": 42,
+        "n_neighbors": 5,
+        "weights": "distance",
+        "metric": "minkowski",
+        "p": 2,
+        "n_components_pca": 4
+    },
+    "metricas_media": {
+        "accuracy": 0.9912806343966414,
+        "precision_weighted": 0.9913136204665169,
+        "recall_weighted": 0.9912806343966414,
+        "f1_weighted": 0.9911973309706619,
+        "precision_macro": 0.9906606198014625,
+        "recall_macro": 0.9907426532013428,
+        "f1_macro": 0.9906082429364117,
+        "mcc": 0.9906591129376882,
+        "fit_time": 0.14289016723632814,
+        "score_time": 0.09700136184692383
+    },
+    "metricas_std": {
+        "accuracy": 0.00044960221343215087,
+        "precision_weighted": 0.00045180448220743456,
+        "recall_weighted": 0.00044960221343215087,
+        "f1_weighted": 0.0004572382935022722,
+        "precision_macro": 0.0006036119927731185,
+        "recall_macro": 0.0005473972784056553,
+        "f1_macro": 0.0005718098100524699,
+        "mcc": 0.00048142778572150764,
+        "fit_time": 0.023485680242725026,
+        "score_time": 0.008824483896406103
+    }
+}
