@@ -1,0 +1,35 @@
+{
+    "experimento": "BCCC17__NearMiss_SMOTE__v1__pca4_mlp__v1",
+    "dataset_test": "/home/javier/TFG_MODELOS_SIMPLES/02_datasets/processed/BCCC17__NearMiss_SMOTE__v1/BCCC17__NearMiss_SMOTE__v1__test.csv",
+    "shape_test": {
+        "rows": 472740,
+        "cols": 64
+    },
+    "parametros": {
+        "label_col": "LABEL",
+        "n_splits": 5,
+        "shuffle": true,
+        "random_state": 42,
+        "n_components_pca": 4,
+        "modelo": "MLPClassifier",
+        "hidden_layer_sizes": [
+            64,
+            32
+        ],
+        "activation": "relu",
+        "solver": "adam",
+        "max_iter": 200,
+        "dataset_balanceado": "BCCC17__NearMiss_SMOTE__v1"
+    },
+    "metricas_test": {
+        "accuracy": 0.20143419215636502,
+        "precision_weighted": 0.8551548130318957,
+        "recall_weighted": 0.20143419215636502,
+        "f1_weighted": 0.2047456446988825,
+        "precision_macro": 0.2027502825338316,
+        "recall_macro": 0.6836911152471055,
+        "f1_macro": 0.1673794667106134,
+        "mcc": 0.23401688641425483,
+        "roc_auc": 0.6552609786853569
+    }
+}

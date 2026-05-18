@@ -1,0 +1,50 @@
+{
+    "experimento": "BCCC17__RUS_SMOTE_ENN__v1__pca4_mlp__v1",
+    "dataset": "/home/javier/TFG_MODELOS_SIMPLES/02_datasets/processed/BCCC17__RUS_SMOTE_ENN__v1/BCCC17__RUS_SMOTE_ENN__v1__train.csv",
+    "shape_dataset": {
+        "rows": 131810,
+        "cols": 64
+    },
+    "parametros": {
+        "label_col": "LABEL",
+        "n_splits": 5,
+        "shuffle": true,
+        "random_state": 42,
+        "n_components_pca": 4,
+        "modelo": "MLPClassifier",
+        "hidden_layer_sizes": [
+            64,
+            32
+        ],
+        "activation": "relu",
+        "solver": "adam",
+        "max_iter": 200,
+        "dataset_balanceado": "BCCC17__RUS_SMOTE_ENN__v1"
+    },
+    "metricas_media": {
+        "accuracy": 0.8701084894924513,
+        "precision_weighted": 0.8897957527251599,
+        "recall_weighted": 0.8701084894924513,
+        "f1_weighted": 0.8602086619881136,
+        "precision_macro": 0.8802971104637389,
+        "recall_macro": 0.8576861202381366,
+        "f1_macro": 0.8447555505916406,
+        "mcc": 0.8623133294288531,
+        "roc_auc": 0.9899352463640883,
+        "fit_time": 6.028250312805175,
+        "score_time": 0.0855832576751709
+    },
+    "metricas_std": {
+        "accuracy": 0.0077633532659376215,
+        "precision_weighted": 0.010851331128893464,
+        "recall_weighted": 0.0077633532659376215,
+        "f1_weighted": 0.009682717818346634,
+        "precision_macro": 0.013872020111465749,
+        "recall_macro": 0.008531748717432504,
+        "f1_macro": 0.012759049333582908,
+        "mcc": 0.008311857207925925,
+        "roc_auc": 0.00116673270594756,
+        "fit_time": 0.9442736740044089,
+        "score_time": 0.0008752311844422526
+    }
+}

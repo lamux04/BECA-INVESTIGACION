@@ -1,0 +1,27 @@
+{
+    "experimento": "BCCC17__RUS_SMOTE__v1__pca4_logreg__v1",
+    "dataset_test": "/home/javier/TFG_MODELOS_SIMPLES/02_datasets/processed/BCCC17__RUS_SMOTE__v1/BCCC17__RUS_SMOTE__v1__test.csv",
+    "shape_test": {
+        "rows": 472740,
+        "cols": 64
+    },
+    "parametros": {
+        "label_col": "LABEL",
+        "n_splits": 5,
+        "shuffle": true,
+        "random_state": 42,
+        "n_components_pca": 4,
+        "modelo": "LogisticRegression"
+    },
+    "metricas_test": {
+        "accuracy": 0.5523776282946229,
+        "precision_weighted": 0.822199776976665,
+        "recall_weighted": 0.5523776282946228,
+        "f1_weighted": 0.6467851974147275,
+        "precision_macro": 0.23963134288085328,
+        "recall_macro": 0.4242345158704044,
+        "f1_macro": 0.22939809297577846,
+        "mcc": 0.35597919146966406,
+        "roc_auc": 0.8749949906269956
+    }
+}

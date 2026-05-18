@@ -1,0 +1,42 @@
+{
+    "experimento": "BCCC17__NearMiss_SMOTE_ENN__v1__pca4_logreg__v1",
+    "dataset": "/home/javier/TFG_MODELOS_SIMPLES/02_datasets/processed/BCCC17__NearMiss_SMOTE_ENN__v1/BCCC17__NearMiss_SMOTE_ENN__v1__train.csv",
+    "shape_dataset": {
+        "rows": 130562,
+        "cols": 64
+    },
+    "parametros": {
+        "label_col": "LABEL",
+        "n_splits": 5,
+        "shuffle": true,
+        "random_state": 42,
+        "n_components_pca": 4,
+        "modelo": "LogisticRegression"
+    },
+    "metricas_media": {
+        "accuracy": 0.5054761362382045,
+        "precision_weighted": 0.5331296265377284,
+        "recall_weighted": 0.5054761362382045,
+        "f1_weighted": 0.4800199094386894,
+        "precision_macro": 0.5178562170009658,
+        "recall_macro": 0.49206634758903184,
+        "f1_macro": 0.46688169916745564,
+        "mcc": 0.4731785819689997,
+        "roc_auc": 0.8960506364777212,
+        "fit_time": 8.824239206314086,
+        "score_time": 0.08739476203918457
+    },
+    "metricas_std": {
+        "accuracy": 0.018709592607021232,
+        "precision_weighted": 0.015802850409675506,
+        "recall_weighted": 0.018709592607021232,
+        "f1_weighted": 0.019236529056894318,
+        "precision_macro": 0.015697408299873095,
+        "recall_macro": 0.017530179144088,
+        "f1_macro": 0.018452779742825928,
+        "mcc": 0.019621380201900736,
+        "roc_auc": 0.006005490469083241,
+        "fit_time": 0.9370986088987405,
+        "score_time": 0.013448638734727207
+    }
+}
