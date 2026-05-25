@@ -1,0 +1,37 @@
+\begin{sidewaystable}[p]
+\caption{Comprehensive performance analysis: Recall (macro), $F$-score (macro), and MCC generalization across scaling and dimensionality reduction (RobustScaler with k=3 vs. StandardScaler with k=33).}
+\label{tab:final_comparison_full}
+\centering
+\scriptsize
+\definecolor{bestblue}{rgb}{0.8, 0.9, 1.0}
+\setlength{\tabcolsep}{0pt}
+\begin{tabular}{| l | ll | ccc | ccc | ccc || ccc | ccc | ccc |}
+\hline
+& & & \multicolumn{9}{c||}{RobustScaler (PCA3)} & \multicolumn{9}{c|}{StandardScaler (PCA33)} \\
+\cline{4-21}
+& & & \multicolumn{3}{c|}{Recall (macro)} & \multicolumn{3}{c|}{$F$-score (macro)} & \multicolumn{3}{c||}{MCC} & \multicolumn{3}{c|}{Recall (macro)} & \multicolumn{3}{c|}{$F$-score (macro)} & \multicolumn{3}{c|}{MCC} \\
+\cline{4-21}
+ID & Rebalancing & Model & CV & Hold & $\Delta$ & CV & Hold & $\Delta$ & CV & Hold & $\Delta$ & CV & Hold & $\Delta$ & CV & Hold & $\Delta$ & CV & Hold & $\Delta$ \\
+\hline
+1 & None & k-NN & 0.672 & 0.663 & 0.009 & \colorbox{bestblue}{\textbf{0.673}} & \colorbox{bestblue}{\textbf{0.679}} & 0.006 & \colorbox{bestblue}{\textbf{0.905}} & \colorbox{bestblue}{\textbf{0.910}} & 0.005 & 0.812 & 0.827 & 0.015 & \colorbox{bestblue}{\textbf{0.829}} & \colorbox{bestblue}{\textbf{0.842}} & 0.013 & \colorbox{bestblue}{\textbf{0.983}} & \colorbox{bestblue}{\textbf{0.984}} & 0.001 \\
+2 & None & Log. Reg. & 0.093 & 0.094 & 0.001 & 0.076 & 0.077 & 0.001 & 0.058 & 0.057 & 0.001 & 0.507 & 0.509 & 0.002 & 0.523 & 0.531 & 0.008 & 0.913 & 0.913 & \colorbox{bestblue}{\textcolor{red}{0.000}} \\
+3 & None & MLP & 0.131 & 0.125 & 0.006 & 0.135 & 0.139 & 0.004 & 0.288 & 0.276 & 0.012 & 0.677 & 0.670 & 0.007 & 0.702 & 0.697 & 0.005 & 0.955 & 0.957 & 0.002 \\
+\hline
+4 & RUS/SMOTE & k-NN & \colorbox{bestblue}{\textbf{0.756}} & \colorbox{bestblue}{\textbf{0.735}} & 0.021 & 0.285 & 0.286 & 0.001 & 0.530 & 0.534 & 0.004 & 0.894 & 0.894 & \colorbox{bestblue}{\textcolor{red}{0.000}} & 0.583 & 0.585 & \colorbox{bestblue}{\textcolor{red}{0.002}} & 0.886 & 0.887 & 0.001 \\
+5 & RUS/SMOTE & Log. Reg. & 0.129 & 0.111 & 0.018 & 0.010 & 0.009 & 0.001 & 0.004 & 0.003 & 0.001 & 0.889 & \colorbox{bestblue}{\textbf{0.905}} & 0.016 & 0.416 & 0.423 & 0.007 & 0.659 & 0.677 & 0.018 \\
+6 & RUS/SMOTE & MLP & 0.194 & 0.186 & 0.008 & 0.073 & 0.042 & 0.031 & 0.069 & 0.008 & 0.061 & \colorbox{bestblue}{\textbf{0.903}} & 0.904 & 0.001 & 0.552 & 0.525 & 0.027 & 0.825 & 0.831 & 0.006 \\
+\hline
+7 & NM/SMOTE & k-NN & 0.616 & 0.600 & 0.016 & 0.098 & 0.095 & 0.003 & 0.129 & 0.130 & 0.001 & 0.805 & 0.814 & 0.009 & 0.281 & 0.303 & 0.022 & 0.330 & 0.357 & 0.027 \\
+8 & NM/SMOTE & Log. Reg. & 0.152 & 0.167 & 0.015 & 0.027 & 0.032 & 0.005 & 0.036 & 0.033 & 0.003 & 0.790 & 0.820 & 0.030 & 0.209 & 0.230 & 0.021 & 0.239 & 0.246 & 0.007 \\
+9 & NM/SMOTE & MLP & 0.177 & 0.181 & 0.004 & 0.056 & 0.040 & 0.016 & 0.059 & 0.052 & 0.007 & 0.783 & 0.796 & 0.013 & 0.200 & 0.208 & 0.008 & 0.232 & 0.245 & 0.013 \\
+\hline
+10 & RUS/S+ENN & k-NN & 0.747 & 0.730 & 0.017 & 0.282 & 0.281 & 0.001 & 0.516 & 0.516 & \colorbox{bestblue}{\textcolor{red}{0.000}} & 0.889 & 0.895 & 0.006 & 0.587 & 0.595 & 0.008 & 0.890 & 0.892 & 0.002 \\
+11 & RUS/S+ENN & Log. Reg. & 0.145 & 0.153 & 0.008 & 0.034 & 0.051 & 0.017 & 0.015 & 0.027 & 0.012 & 0.886 & 0.901 & 0.015 & 0.416 & 0.412 & 0.004 & 0.672 & 0.689 & 0.017 \\
+12 & RUS/S+ENN & MLP & 0.201 & 0.201 & \colorbox{bestblue}{\textcolor{red}{0.000}} & 0.065 & 0.065 & \colorbox{bestblue}{\textcolor{red}{0.000}} & 0.049 & 0.046 & 0.003 & 0.897 & \colorbox{bestblue}{\textbf{0.905}} & 0.008 & 0.571 & 0.539 & 0.032 & 0.847 & 0.847 & \colorbox{bestblue}{\textcolor{red}{0.000}} \\
+\hline
+13 & NM/S+ENN & k-NN & 0.628 & 0.596 & 0.032 & 0.100 & 0.094 & 0.006 & 0.139 & 0.131 & 0.008 & 0.804 & 0.815 & 0.011 & 0.297 & 0.314 & 0.017 & 0.343 & 0.359 & 0.016 \\
+14 & NM/S+ENN & Log. Reg. & 0.152 & 0.165 & 0.013 & 0.033 & 0.031 & 0.002 & 0.037 & 0.035 & 0.002 & 0.776 & 0.821 & 0.045 & 0.223 & 0.247 & 0.024 & 0.214 & 0.245 & 0.031 \\
+15 & NM/S+ENN & MLP & 0.182 & 0.184 & 0.002 & 0.062 & 0.052 & 0.010 & 0.058 & 0.045 & 0.013 & 0.781 & 0.762 & 0.019 & 0.216 & 0.230 & 0.014 & 0.232 & 0.260 & 0.028 \\
+\hline
+\end{tabular}
+\end{sidewaystable}
