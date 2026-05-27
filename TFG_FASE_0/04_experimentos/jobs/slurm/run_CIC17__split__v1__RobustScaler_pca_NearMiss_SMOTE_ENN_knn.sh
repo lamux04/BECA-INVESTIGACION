@@ -13,9 +13,9 @@ set -e
 NOMBRE_SCRIPT="CIC17__split__v1__RobustScaler_pca_NearMiss_SMOTE_ENN_knn"
 PATH_SCRIPT="03_codigo/CIC17/03_analisis/$NOMBRE_SCRIPT"
 
-# ========= CONFIGURACION DE RUTAS =========
+# ========= CONFIGURACIÓN DE RUTAS =========
 # Si quieres, cambia BASE_DIR por la ruta de tu nuevo equipo.
-# Si no existe, usa automaticamente el directorio actual.
+# Si no existe, usa automáticamente el directorio actual.
 BASE_DIR_DEFAULT="/home/inginf/u32902122/TFG"
 if [ -d "$BASE_DIR_DEFAULT" ]; then
     BASE_DIR="$BASE_DIR_DEFAULT"
@@ -75,7 +75,7 @@ fi
 conda activate tfgClean
 export PYTHONNOUSERSITE=1
 
-# ========= EJECUCION =========
+# ========= EJECUCIÓN =========
 cd "$SUBMIT_DIR"
 
 NVIDIA_PID=""
