@@ -1,0 +1,2 @@
+dataset,experiment,phase,fold,model_base_path,selection_metric,best_model_checkpoint,best_validation_accuracy,source_max_token_len,target_max_token_len,batch_size,max_epochs,precision,random_state,train_rows,validation_rows,test_rows,features
+CIC17,B__t5_fold_2,B_t5,2,/LUSTRE/home/inginf/u32902122/TFG_T5/07_models/pretrained/t5-small,accuracy,/LUSTRE/home/inginf/u32902122/TFG_T5/07_models/CIC17/fase_B_t5/B__t5_fold_2/checkpoints/checkpoint-1008320,0.9989214733417963,150,3,16,10,32,42,1613311,403328,504159,47
